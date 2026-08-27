@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 
 const services = [
@@ -105,13 +106,16 @@ export default function Home() {
               onClick={() => setMenuOpen(false)}
               className="group relative"
             >
-              <div className="text-[21px] font-bold tracking-[0.18em]">
-                BRIANO
-              </div>
-
-              <div className="-mt-0.5 pl-[2px] text-[7px] font-bold tracking-[0.58em] text-[#a77d36]">
-                AND FAMILY
-              </div>
+              <div className="flex h-[58px] w-[72px] items-center overflow-hidden">
+  <Image
+  src="/b.png"
+  alt="Briano & Family"
+  width={1400}
+  height={1400}
+  priority
+  className="h-[78px] w-[78px] object-contain"
+/>
+</div>
             </Link>
 
             <nav className="hidden items-center gap-8 lg:flex xl:gap-10">
