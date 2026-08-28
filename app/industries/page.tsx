@@ -1,16 +1,6 @@
 "use client";
 
-import { useState } from "react";
-
-const navigation = [
-  ["Home", "/"],
-  ["About Us", "/about"],
-  ["Services", "/services"],
-  ["Industries", "/industries"],
-  ["Insights", "/#insights"],
-  ["Contact", "/#contact"],
-];
-
+import Header from "../components/Header";
 const industries = [
   {
     number: "01",
@@ -154,157 +144,19 @@ const approach = [
 ];
 
 export default function IndustriesPage() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <main className="min-h-screen bg-[#f5f3ee] text-[#111b27]">
-
       {/* =========================================================
-          TOP BAR
+          SHARED HEADER
       ========================================================= */}
 
-      <div className="bg-[#0d1721] px-6 py-2.5 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white/60 sm:text-xs">
-        Strategic Advisory • Business Development • International Trade
-      </div>
-
-      {/* =========================================================
-          NAVIGATION
-      ========================================================= */}
-
-      <header className="sticky top-0 z-50 border-b border-black/[0.06] bg-[#f5f3ee]/95 backdrop-blur-xl">
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-          <div className="flex h-20 items-center justify-between">
-
-            {/* Logo */}
-
-            <a href="/" className="shrink-0">
-
-              <div className="text-[20px] font-bold tracking-[0.16em] text-[#111b27]">
-                BRIANO
-              </div>
-
-              <div className="-mt-0.5 pl-[1px] text-[8px] font-semibold tracking-[0.5em] text-[#a77d36]">
-                AND FAMILY
-              </div>
-
-            </a>
-
-            {/* Desktop navigation */}
-
-            <nav className="hidden items-center gap-7 lg:flex xl:gap-9">
-
-              {navigation.map(([label, link]) => (
-                <a
-                  key={label}
-                  href={link}
-                  className={`text-[13px] font-medium transition-colors duration-200 ${
-                    label === "Industries"
-                      ? "text-[#111b27]"
-                      : "text-[#56616b] hover:text-[#111b27]"
-                  }`}
-                >
-                  {label}
-                </a>
-              ))}
-
-            </nav>
-
-            {/* CTA */}
-
-            <a
-              href="/#contact"
-              className="hidden rounded-full bg-[#a77d36] px-6 py-3 text-[13px] font-semibold text-white transition duration-200 hover:bg-[#896529] lg:inline-flex"
-            >
-              Talk to an Advisor
-            </a>
-
-            {/* Mobile menu button */}
-
-            <button
-              type="button"
-              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="relative flex h-11 w-11 items-center justify-center rounded-full border border-[#111b27]/10 lg:hidden"
-            >
-
-              <span className="sr-only">
-                {menuOpen ? "Close navigation" : "Open navigation"}
-              </span>
-
-              <span className="flex w-5 flex-col gap-1.5">
-
-                <span
-                  className={`block h-[2px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "translate-y-2 rotate-45" : ""
-                  }`}
-                />
-
-                <span
-                  className={`block h-[2px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "opacity-0" : ""
-                  }`}
-                />
-
-                <span
-                  className={`block h-[2px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "-translate-y-2 -rotate-45" : ""
-                  }`}
-                />
-
-              </span>
-
-            </button>
-
-          </div>
-
-          {/* Mobile navigation */}
-
-          <div
-            className={`overflow-hidden transition-all duration-300 lg:hidden ${
-              menuOpen
-                ? "max-h-[650px] opacity-100"
-                : "max-h-0 opacity-0"
-            }`}
-          >
-
-            <nav className="border-t border-black/[0.06] py-5">
-
-              {navigation.map(([label, link]) => (
-                <a
-                  key={label}
-                  href={link}
-                  onClick={() => setMenuOpen(false)}
-                  className="block border-b border-black/[0.04] py-4 text-[16px] font-medium text-[#111b27]"
-                >
-                  {label}
-                </a>
-              ))}
-
-              <a
-                href="/#contact"
-                onClick={() => setMenuOpen(false)}
-                className="mt-5 flex items-center justify-center rounded-full bg-[#a77d36] px-6 py-4 text-sm font-semibold text-white"
-              >
-                Talk to an Advisor
-              </a>
-
-            </nav>
-
-          </div>
-
-        </div>
-
-      </header>
+      <Header />
 
       {/* =========================================================
           HERO
       ========================================================= */}
 
       <section className="relative overflow-hidden bg-[#0d1721] px-6 py-24 text-white lg:px-8 lg:py-32">
-
         <div className="pointer-events-none absolute -right-72 -top-72 h-[800px] w-[800px] rounded-full border border-white/[0.045]" />
 
         <div className="pointer-events-none absolute -right-48 -top-48 h-[550px] w-[550px] rounded-full border border-[#b58b47]/10" />
@@ -312,17 +164,13 @@ export default function IndustriesPage() {
         <div className="pointer-events-none absolute bottom-[-300px] left-[-200px] h-[500px] w-[500px] rounded-full border border-white/[0.035]" />
 
         <div className="relative mx-auto max-w-7xl">
-
           <div className="max-w-5xl">
-
             <div className="mb-8 flex items-center gap-4">
-
               <span className="h-px w-12 bg-[#b99252]" />
 
               <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#c6a568] sm:text-xs">
                 Industries
               </span>
-
             </div>
 
             <h1 className="text-[48px] font-semibold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-[78px]">
@@ -341,7 +189,6 @@ export default function IndustriesPage() {
             </p>
 
             <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-
               <a
                 href="#industries-list"
                 className="inline-flex items-center justify-center rounded-full bg-[#a77d36] px-7 py-4 text-sm font-semibold text-white transition hover:bg-[#8c682d]"
@@ -356,13 +203,9 @@ export default function IndustriesPage() {
               >
                 Discuss Your Industry
               </a>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       {/* =========================================================
@@ -370,23 +213,17 @@ export default function IndustriesPage() {
       ========================================================= */}
 
       <section className="bg-white px-6 py-24 lg:px-8 lg:py-32">
-
         <div className="mx-auto max-w-7xl">
-
           <div className="grid gap-14 lg:grid-cols-[0.7fr_1.3fr]">
-
             <div>
-
               <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[#a77d36]">
                 Sector perspective
               </p>
 
               <div className="mt-6 h-px w-16 bg-[#a77d36]" />
-
             </div>
 
             <div>
-
               <h2 className="max-w-4xl text-[38px] font-semibold leading-[1.08] tracking-[-0.04em] sm:text-5xl lg:text-[56px]">
                 Every industry has its own commercial realities.
               </h2>
@@ -403,13 +240,9 @@ export default function IndustriesPage() {
                 sector-aware thinking to help clients evaluate opportunities
                 in context.
               </p>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       {/* =========================================================
@@ -420,11 +253,8 @@ export default function IndustriesPage() {
         id="industries-list"
         className="bg-[#f5f3ee] px-6 py-24 lg:px-8 lg:py-32"
       >
-
         <div className="mx-auto max-w-7xl">
-
           <div className="mb-16 max-w-3xl">
-
             <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[#a77d36]">
               Areas of focus
             </p>
@@ -438,18 +268,14 @@ export default function IndustriesPage() {
               depending on the specific objectives and requirements of each
               engagement.
             </p>
-
           </div>
 
           <div className="grid gap-5 md:grid-cols-2">
-
             {industries.map((industry) => (
-
               <article
                 key={industry.number}
                 className="group relative overflow-hidden rounded-[1.5rem] border border-black/[0.055] bg-white p-8 transition duration-300 hover:-translate-y-1 hover:shadow-xl sm:p-10"
               >
-
                 {/* Decorative number */}
 
                 <div className="absolute right-6 top-2 select-none text-[100px] font-bold leading-none tracking-[-0.08em] text-[#111b27]/[0.035]">
@@ -457,9 +283,7 @@ export default function IndustriesPage() {
                 </div>
 
                 <div className="relative">
-
                   <div className="flex items-center justify-between">
-
                     <span className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#a77d36]">
                       {industry.label}
                     </span>
@@ -467,7 +291,6 @@ export default function IndustriesPage() {
                     <span className="flex h-10 w-10 items-center justify-center rounded-full border border-black/10 text-sm text-[#68737c] transition duration-300 group-hover:border-[#a77d36] group-hover:bg-[#a77d36] group-hover:text-white">
                       ↗
                     </span>
-
                   </div>
 
                   <h3 className="mt-8 max-w-sm text-[27px] font-semibold leading-tight tracking-[-0.03em]">
@@ -479,38 +302,26 @@ export default function IndustriesPage() {
                   </p>
 
                   <div className="mt-8 border-t border-black/[0.07] pt-6">
-
                     <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#999fa4]">
                       Relevant capabilities
                     </p>
 
                     <div className="mt-4 flex flex-wrap gap-2">
-
                       {industry.areas.map((area) => (
-
                         <span
                           key={area}
                           className="rounded-full border border-black/[0.07] bg-[#f8f7f3] px-3 py-2 text-[11px] font-medium text-[#5d6871]"
                         >
                           {area}
                         </span>
-
                       ))}
-
                     </div>
-
                   </div>
-
                 </div>
-
               </article>
-
             ))}
-
           </div>
-
         </div>
-
       </section>
 
       {/* =========================================================
@@ -518,15 +329,11 @@ export default function IndustriesPage() {
       ========================================================= */}
 
       <section className="bg-[#111b27] px-6 py-24 text-white lg:px-8 lg:py-32">
-
         <div className="mx-auto max-w-7xl">
-
           <div className="grid gap-16 lg:grid-cols-2 lg:items-center">
-
             {/* Visual */}
 
             <div className="relative min-h-[500px] overflow-hidden rounded-[2rem] bg-[#172632]">
-
               <div
                 className="absolute inset-0 opacity-20"
                 style={{
@@ -559,9 +366,7 @@ export default function IndustriesPage() {
               {/* Centre */}
 
               <div className="absolute left-1/2 top-[50%] flex h-28 w-28 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-[#c6a568]/30 bg-[#111b27]">
-
                 <div className="text-center">
-
                   <div className="text-xl font-semibold">
                     B&F
                   </div>
@@ -569,13 +374,10 @@ export default function IndustriesPage() {
                   <div className="mt-1 text-[7px] uppercase tracking-[0.2em] text-[#c6a568]">
                     Advisory
                   </div>
-
                 </div>
-
               </div>
 
               <div className="absolute bottom-8 left-8 right-8">
-
                 <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#c6a568]">
                   Connected thinking
                 </p>
@@ -583,15 +385,12 @@ export default function IndustriesPage() {
                 <p className="mt-3 max-w-md text-xl font-semibold">
                   Business challenges rarely exist in isolation.
                 </p>
-
               </div>
-
             </div>
 
             {/* Content */}
 
             <div>
-
               <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[#c6a568]">
                 Cross-industry perspective
               </p>
@@ -615,19 +414,16 @@ export default function IndustriesPage() {
               </p>
 
               <div className="mt-10 space-y-3">
-
                 {[
                   "Business development",
                   "Tender advisory",
                   "International trade",
                   "Financial consulting",
                 ].map((item, index) => (
-
                   <div
                     key={item}
                     className="flex items-center gap-5 border-t border-white/10 py-4"
                   >
-
                     <span className="text-[10px] font-bold text-[#c6a568]">
                       0{index + 1}
                     </span>
@@ -635,19 +431,12 @@ export default function IndustriesPage() {
                     <span className="text-sm text-white/65">
                       {item}
                     </span>
-
                   </div>
-
                 ))}
-
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       {/* =========================================================
@@ -655,11 +444,8 @@ export default function IndustriesPage() {
       ========================================================= */}
 
       <section className="bg-white px-6 py-24 lg:px-8 lg:py-32">
-
         <div className="mx-auto max-w-7xl">
-
           <div className="max-w-3xl">
-
             <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[#a77d36]">
               Our approach
             </p>
@@ -669,20 +455,16 @@ export default function IndustriesPage() {
               <br />
               We finish with the opportunity.
             </h2>
-
           </div>
 
           <div className="mt-16 grid gap-0 border-t border-black/10 md:grid-cols-2 lg:grid-cols-4">
-
             {approach.map((item, index) => (
-
               <article
                 key={item.number}
                 className={`border-b border-black/10 py-8 md:px-7 lg:border-b-0 lg:py-10 ${
                   index > 0 ? "lg:border-l" : ""
                 }`}
               >
-
                 <span className="text-[11px] font-bold tracking-[0.2em] text-[#a77d36]">
                   {item.number}
                 </span>
@@ -694,15 +476,10 @@ export default function IndustriesPage() {
                 <p className="mt-4 text-sm leading-7 text-[#68737c]">
                   {item.description}
                 </p>
-
               </article>
-
             ))}
-
           </div>
-
         </div>
-
       </section>
 
       {/* =========================================================
@@ -710,13 +487,9 @@ export default function IndustriesPage() {
       ========================================================= */}
 
       <section className="bg-[#eae7de] px-6 py-24 lg:px-8 lg:py-28">
-
         <div className="mx-auto max-w-7xl">
-
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
-
             <div>
-
               <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[#a77d36]">
                 Beyond sectors
               </p>
@@ -724,11 +497,9 @@ export default function IndustriesPage() {
               <h2 className="mt-6 max-w-4xl text-[40px] font-semibold leading-[1.05] tracking-[-0.04em] sm:text-5xl lg:text-[56px]">
                 Looking for growth beyond your current market?
               </h2>
-
             </div>
 
             <div>
-
               <p className="text-sm leading-7 text-[#68737c]">
                 Whether the objective is entering a new market, developing a
                 partnership, pursuing a tender or evaluating a commercial
@@ -743,13 +514,9 @@ export default function IndustriesPage() {
                 Explore our services
                 <span className="ml-3 text-[#a77d36]">→</span>
               </a>
-
             </div>
-
           </div>
-
         </div>
-
       </section>
 
       {/* =========================================================
@@ -757,19 +524,15 @@ export default function IndustriesPage() {
       ========================================================= */}
 
       <section className="relative overflow-hidden bg-[#a77d36] px-6 py-24 text-white lg:px-8 lg:py-32">
-
         <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full border border-white/10" />
 
         <div className="relative mx-auto max-w-7xl">
-
           <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-white/65">
             Start a conversation
           </p>
 
           <div className="mt-6 grid gap-12 lg:grid-cols-[1fr_auto] lg:items-end">
-
             <div>
-
               <h2 className="max-w-4xl text-[46px] font-semibold leading-[0.98] tracking-[-0.04em] sm:text-6xl">
                 Have an opportunity
                 <br />
@@ -780,7 +543,6 @@ export default function IndustriesPage() {
                 Tell us about your business, market or opportunity and let us
                 explore the commercial possibilities together.
               </p>
-
             </div>
 
             <a
@@ -790,11 +552,8 @@ export default function IndustriesPage() {
               Contact Briano and Family
               <span className="ml-3">↗</span>
             </a>
-
           </div>
-
         </div>
-
       </section>
 
       {/* =========================================================
@@ -802,15 +561,11 @@ export default function IndustriesPage() {
       ========================================================= */}
 
       <footer className="bg-[#080f16] px-6 py-14 text-white lg:px-8">
-
         <div className="mx-auto max-w-7xl">
-
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-
             {/* Brand */}
 
             <div className="lg:col-span-2">
-
               <div className="text-2xl font-bold tracking-[0.16em]">
                 BRIANO
               </div>
@@ -828,19 +583,16 @@ export default function IndustriesPage() {
               <p className="mt-5 text-xs text-white/30">
                 Established 2019 • Nairobi, Kenya
               </p>
-
             </div>
 
             {/* Company */}
 
             <div>
-
               <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30">
                 Company
               </p>
 
               <div className="mt-5 space-y-3 text-sm text-white/50">
-
                 <a
                   href="/about"
                   className="block transition hover:text-white"
@@ -868,26 +620,22 @@ export default function IndustriesPage() {
                 >
                   Insights
                 </a>
-
               </div>
-
             </div>
 
             {/* Contact */}
 
             <div>
-
               <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30">
                 Contact
               </p>
 
               <div className="mt-5 space-y-4 text-sm text-white/50">
-
                 <a
                   href="mailto:info@brianofamily.com"
                   className="block transition hover:text-white"
                 >
-                  info@brianofamily.com
+                  info@briannofamily.com
                 </a>
 
                 <a
@@ -904,21 +652,16 @@ export default function IndustriesPage() {
                   <br />
                   Kenya
                 </p>
-
               </div>
-
             </div>
-
           </div>
 
           <div className="mt-14 flex flex-col justify-between gap-4 border-t border-white/10 pt-6 text-[11px] text-white/25 sm:flex-row">
-
             <p>
               © 2026 Briano and Family. All rights reserved.
             </p>
 
             <div className="flex gap-6">
-
               <a
                 href="#"
                 className="transition hover:text-white"
@@ -932,15 +675,10 @@ export default function IndustriesPage() {
               >
                 Terms &amp; Conditions
               </a>
-
             </div>
-
           </div>
-
         </div>
-
       </footer>
-
     </main>
   );
 }

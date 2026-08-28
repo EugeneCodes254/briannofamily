@@ -1,15 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const navigation = [
-  ["Home", "/"],
-  ["About Us", "/about"],
-  ["Services", "/#services"],
-  ["Industries", "/#industries"],
-  ["Insights", "/insights"],
-  ["Contact", "/#contact"],
-];
+import Header from "../components/Header";
 
 const categories = [
   "All",
@@ -72,7 +64,6 @@ const insights = [
 ];
 
 export default function InsightsPage() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filteredInsights =
@@ -86,162 +77,16 @@ export default function InsightsPage() {
     <main className="min-h-screen bg-[#f5f3ee] text-[#111b27]">
 
       {/* =========================================================
-          TOP BAR
+          SHARED HEADER
       ========================================================= */}
 
-      <div className="bg-[#0b141d] px-6 py-2.5 text-center text-[10px] font-medium uppercase tracking-[0.2em] text-white/50 sm:text-xs">
-        Strategic Advisory • Business Development • International Trade
-      </div>
-
-      {/* =========================================================
-          NAVIGATION
-      ========================================================= */}
-
-      <header className="sticky top-0 z-50 border-b border-black/[0.06] bg-[#f5f3ee]/90 backdrop-blur-xl">
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-          <div className="flex h-20 items-center justify-between">
-
-            {/* Logo */}
-
-            <a href="/" className="group shrink-0">
-
-              <div className="text-[20px] font-bold tracking-[0.16em]">
-                BRIANO
-              </div>
-
-              <div className="-mt-0.5 pl-[1px] text-[8px] font-semibold tracking-[0.5em] text-[#a77d36]">
-                AND FAMILY
-              </div>
-
-            </a>
-
-            {/* Desktop Navigation */}
-
-            <nav className="hidden items-center gap-7 lg:flex xl:gap-9">
-
-              {navigation.map(([label, link]) => (
-
-                <a
-                  key={label}
-                  href={link}
-                  className={`relative text-[13px] font-medium transition ${
-                    label === "Insights"
-                      ? "text-[#111b27]"
-                      : "text-[#56616b] hover:text-[#111b27]"
-                  }`}
-                >
-
-                  {label}
-
-                  {label === "Insights" && (
-                    <span className="absolute -bottom-2 left-0 h-px w-full bg-[#a77d36]" />
-                  )}
-
-                </a>
-
-              ))}
-
-            </nav>
-
-            {/* CTA */}
-
-            <a
-              href="/#contact"
-              className="hidden rounded-full bg-[#a77d36] px-6 py-3 text-[13px] font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[#8f6a30] lg:inline-flex"
-            >
-              Talk to an Advisor
-            </a>
-
-            {/* Mobile */}
-
-            <button
-              type="button"
-              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="relative flex h-11 w-11 items-center justify-center rounded-full border border-black/10 lg:hidden"
-            >
-
-              <span className="sr-only">
-                {menuOpen ? "Close navigation" : "Open navigation"}
-              </span>
-
-              <span className="flex w-5 flex-col gap-1.5">
-
-                <span
-                  className={`h-[2px] w-full bg-[#111b27] transition ${
-                    menuOpen ? "translate-y-2 rotate-45" : ""
-                  }`}
-                />
-
-                <span
-                  className={`h-[2px] w-full bg-[#111b27] transition ${
-                    menuOpen ? "opacity-0" : ""
-                  }`}
-                />
-
-                <span
-                  className={`h-[2px] w-full bg-[#111b27] transition ${
-                    menuOpen ? "-translate-y-2 -rotate-45" : ""
-                  }`}
-                />
-
-              </span>
-
-            </button>
-
-          </div>
-
-          {/* Mobile Menu */}
-
-          <div
-            className={`overflow-hidden transition-all duration-300 lg:hidden ${
-              menuOpen
-                ? "max-h-[600px] opacity-100"
-                : "max-h-0 opacity-0"
-            }`}
-          >
-
-            <nav className="border-t border-black/[0.06] py-5">
-
-              {navigation.map(([label, link]) => (
-
-                <a
-                  key={label}
-                  href={link}
-                  onClick={() => setMenuOpen(false)}
-                  className="block border-b border-black/[0.05] py-4 text-[16px] font-medium"
-                >
-                  {label}
-                </a>
-
-              ))}
-
-              <a
-                href="/#contact"
-                onClick={() => setMenuOpen(false)}
-                className="mt-5 flex justify-center rounded-full bg-[#a77d36] px-6 py-4 text-sm font-semibold text-white"
-              >
-                Talk to an Advisor
-              </a>
-
-            </nav>
-
-          </div>
-
-        </div>
-
-      </header>
+      <Header />
 
       {/* =========================================================
           HERO
       ========================================================= */}
 
       <section className="relative overflow-hidden bg-[#0d1721] px-6 py-24 text-white lg:px-8 lg:py-32">
-
-        {/* Decorative geometry */}
 
         <div className="pointer-events-none absolute -right-64 -top-64 h-[720px] w-[720px] rounded-full border border-white/[0.05]" />
 
@@ -539,9 +384,11 @@ export default function InsightsPage() {
                     className="inline-flex items-center text-sm font-semibold text-[#111b27]"
                   >
                     Explore perspective
+
                     <span className="ml-3 text-[#a77d36] transition group-hover:translate-x-1">
                       →
                     </span>
+
                   </a>
 
                 </div>
@@ -779,14 +626,14 @@ export default function InsightsPage() {
                 </a>
 
                 <a
-                  href="/#services"
+                  href="/services"
                   className="block transition hover:text-white"
                 >
                   Services
                 </a>
 
                 <a
-                  href="/#industries"
+                  href="/industries"
                   className="block transition hover:text-white"
                 >
                   Industries

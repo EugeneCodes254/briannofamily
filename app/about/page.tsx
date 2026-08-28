@@ -1,16 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-
-const navigation = [
-  ["Home", "/"],
-  ["About Us", "/about"],
-  ["Services", "/services"],
-  ["Industries", "/industries"],
-  ["Insights", "/insights"],
-  ["Contact", "/contact"],
-];
+import Header from "../components/Header";
 
 const capabilities = [
   {
@@ -66,161 +57,37 @@ const values = [
   },
 ];
 
-export default function AboutPage() {
-  const [menuOpen, setMenuOpen] = useState(false);
+const approach = [
+  {
+    number: "01",
+    title: "Understand",
+    description:
+      "We begin by understanding your objectives, circumstances, market environment and the opportunity or challenge you are addressing.",
+  },
+  {
+    number: "02",
+    title: "Strategise",
+    description:
+      "We assess available options and develop a structured approach aligned with your objectives and commercial priorities.",
+  },
+  {
+    number: "03",
+    title: "Execute",
+    description:
+      "We help turn strategy into practical next steps, giving clients a clearer direction for moving forward.",
+  },
+];
 
+export default function AboutPage() {
   return (
     <main className="min-h-screen overflow-x-hidden bg-[#f5f3ee] text-[#111b27]">
 
       {/* =========================================================
-          TOP BAR
+          SHARED HEADER
+          Uses app/components/Header.tsx
       ========================================================= */}
 
-      <div className="bg-[#081018] px-6 py-2.5 text-center text-[9px] font-semibold uppercase tracking-[0.28em] text-white/45 sm:text-[10px]">
-        Strategic Advisory
-        <span className="mx-3 text-[#b99455]">•</span>
-        Business Development
-        <span className="mx-3 text-[#b99455]">•</span>
-        International Trade
-      </div>
-
-      {/* =========================================================
-          NAVIGATION
-      ========================================================= */}
-
-      <header className="sticky top-0 z-50 border-b border-black/[0.06] bg-[#f5f3ee]/90 backdrop-blur-2xl">
-
-        <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
-
-          <div className="flex h-[82px] items-center justify-between">
-
-            {/* LOGO */}
-
-            <Link
-              href="/"
-              onClick={() => setMenuOpen(false)}
-              className="group shrink-0"
-            >
-              <div className="text-[21px] font-bold tracking-[0.18em] text-[#111b27] transition group-hover:tracking-[0.21em]">
-                BRIANO
-              </div>
-
-              <div className="-mt-0.5 pl-[1px] text-[8px] font-semibold tracking-[0.55em] text-[#a77d36]">
-                AND FAMILY
-              </div>
-            </Link>
-
-            {/* DESKTOP NAV */}
-
-            <nav className="hidden items-center gap-8 lg:flex xl:gap-10">
-
-              {navigation.map(([label, href]) => (
-                <Link
-                  key={label}
-                  href={href}
-                  className={`relative text-[12px] font-medium transition duration-300 ${
-                    label === "About Us"
-                      ? "text-[#111b27]"
-                      : "text-[#68727a] hover:text-[#111b27]"
-                  }`}
-                >
-                  {label}
-
-                  {label === "About Us" && (
-                    <span className="absolute -bottom-2 left-0 h-px w-full bg-[#a77d36]" />
-                  )}
-                </Link>
-              ))}
-
-            </nav>
-
-            {/* CTA */}
-
-            <Link
-              href="/contact"
-              className="hidden rounded-full bg-[#111b27] px-6 py-3.5 text-[12px] font-semibold text-white shadow-[0_8px_25px_rgba(17,27,39,0.12)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#a77d36] lg:inline-flex"
-            >
-              Talk to an Advisor
-              <span className="ml-3 text-[#c6a568]">↗</span>
-            </Link>
-
-            {/* MOBILE */}
-
-            <button
-              type="button"
-              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 lg:hidden"
-            >
-              <span className="flex w-5 flex-col gap-1.5">
-
-                <span
-                  className={`h-[1.5px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "translate-y-2 rotate-45" : ""
-                  }`}
-                />
-
-                <span
-                  className={`h-[1.5px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "opacity-0" : ""
-                  }`}
-                />
-
-                <span
-                  className={`h-[1.5px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "-translate-y-2 -rotate-45" : ""
-                  }`}
-                />
-
-              </span>
-            </button>
-
-          </div>
-
-          {/* MOBILE MENU */}
-
-          <div
-            className={`overflow-hidden transition-all duration-500 lg:hidden ${
-              menuOpen
-                ? "max-h-[700px] opacity-100"
-                : "max-h-0 opacity-0"
-            }`}
-          >
-
-            <nav className="border-t border-black/[0.06] py-5">
-
-              {navigation.map(([label, href]) => (
-                <Link
-                  key={label}
-                  href={href}
-                  onClick={() => setMenuOpen(false)}
-                  className={`block border-b border-black/[0.05] py-4 text-[15px] font-medium ${
-                    label === "About Us"
-                      ? "text-[#a77d36]"
-                      : "text-[#111b27]"
-                  }`}
-                >
-                  {label}
-                </Link>
-              ))}
-
-              <Link
-                href="/contact"
-                onClick={() => setMenuOpen(false)}
-                className="mt-5 flex items-center justify-center rounded-full bg-[#111b27] px-6 py-4 text-sm font-semibold text-white"
-              >
-                Talk to an Advisor
-                <span className="ml-3 text-[#c6a568]">↗</span>
-              </Link>
-
-            </nav>
-
-          </div>
-
-        </div>
-
-      </header>
+      <Header />
 
       {/* =========================================================
           HERO
@@ -228,13 +95,15 @@ export default function AboutPage() {
 
       <section className="relative min-h-[720px] overflow-hidden bg-[#0b141d] text-white">
 
-        {/* Decorative geometry */}
+        {/* Decorative circles */}
 
         <div className="pointer-events-none absolute -right-[360px] -top-[360px] h-[820px] w-[820px] rounded-full border border-white/[0.045]" />
 
         <div className="pointer-events-none absolute -right-[230px] -top-[230px] h-[560px] w-[560px] rounded-full border border-[#c6a568]/10" />
 
         <div className="pointer-events-none absolute -bottom-[300px] -left-[200px] h-[600px] w-[600px] rounded-full border border-white/[0.025]" />
+
+        {/* Grid */}
 
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.035]"
@@ -247,7 +116,7 @@ export default function AboutPage() {
 
         <div className="relative mx-auto grid min-h-[720px] max-w-[1440px] items-center gap-16 px-6 py-24 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:py-28">
 
-          {/* LEFT */}
+          {/* HERO LEFT */}
 
           <div>
 
@@ -264,10 +133,13 @@ export default function AboutPage() {
             <h1 className="max-w-5xl text-[50px] font-semibold leading-[0.96] tracking-[-0.055em] sm:text-6xl md:text-7xl lg:text-[82px] xl:text-[92px]">
               We bring
               <br />
+
               <span className="text-[#c6a568]">
                 perspective
               </span>
+
               <br />
+
               to opportunity.
             </h1>
 
@@ -298,7 +170,7 @@ export default function AboutPage() {
 
           </div>
 
-          {/* RIGHT VISUAL */}
+          {/* HERO RIGHT */}
 
           <div className="relative hidden lg:block">
 
@@ -315,15 +187,13 @@ export default function AboutPage() {
                 }}
               />
 
-              {/* circles */}
-
               <div className="absolute -right-24 top-16 h-[370px] w-[370px] rounded-full border border-[#c6a568]/20" />
 
               <div className="absolute -right-5 top-36 h-[250px] w-[250px] rounded-full border border-white/10" />
 
               <div className="absolute bottom-0 left-0 h-1/2 w-full bg-gradient-to-t from-[#080e14] to-transparent" />
 
-              {/* center symbol */}
+              {/* Center symbol */}
 
               <div className="absolute left-10 top-10 flex h-20 w-20 items-center justify-center rounded-full border border-[#c6a568]/30">
 
@@ -331,12 +201,12 @@ export default function AboutPage() {
 
               </div>
 
-              {/* text */}
+              {/* Card text */}
 
               <div className="absolute bottom-10 left-10 right-10">
 
                 <p className="text-[9px] font-semibold uppercase tracking-[0.38em] text-[#c6a568]">
-                  ESTABLISHED 2019
+                  Established 2019
                 </p>
 
                 <h2 className="mt-5 text-3xl font-semibold leading-tight xl:text-4xl">
@@ -356,7 +226,7 @@ export default function AboutPage() {
 
             </div>
 
-            {/* floating card */}
+            {/* Floating location card */}
 
             <div className="absolute -bottom-6 -left-8 rounded-2xl border border-white/10 bg-[#15232e] px-6 py-5 shadow-2xl">
 
@@ -377,7 +247,7 @@ export default function AboutPage() {
       </section>
 
       {/* =========================================================
-          INTRO
+          OUR STORY
       ========================================================= */}
 
       <section className="bg-white px-6 py-24 lg:px-10 lg:py-32">
@@ -434,7 +304,7 @@ export default function AboutPage() {
       </section>
 
       {/* =========================================================
-          TIMELINE
+          OUR JOURNEY
       ========================================================= */}
 
       <section className="relative overflow-hidden bg-[#f5f3ee] px-6 py-24 lg:px-10 lg:py-32">
@@ -452,12 +322,17 @@ export default function AboutPage() {
               <h2 className="mt-6 text-[42px] font-semibold leading-[1.03] tracking-[-0.045em] sm:text-5xl">
                 Built around
                 <br />
-                <span className="text-[#a77d36]">possibility.</span>
+
+                <span className="text-[#a77d36]">
+                  possibility.
+                </span>
               </h2>
 
             </div>
 
             <div className="relative border-l border-black/10 pl-8 sm:pl-12">
+
+              {/* 2019 */}
 
               <div className="relative pb-14">
 
@@ -478,6 +353,8 @@ export default function AboutPage() {
 
               </div>
 
+              {/* Growth */}
+
               <div className="relative pb-14">
 
                 <span className="absolute -left-[41px] top-1 h-3 w-3 rounded-full border-[3px] border-[#f5f3ee] bg-[#a77d36] sm:-left-[57px]" />
@@ -496,6 +373,8 @@ export default function AboutPage() {
                 </p>
 
               </div>
+
+              {/* Today */}
 
               <div className="relative">
 
@@ -526,7 +405,7 @@ export default function AboutPage() {
       </section>
 
       {/* =========================================================
-          BIG STATEMENT
+          PHILOSOPHY
       ========================================================= */}
 
       <section className="bg-[#111b27] px-6 py-28 text-white lg:px-10 lg:py-36">
@@ -585,6 +464,7 @@ export default function AboutPage() {
               <h2 className="mt-6 text-[42px] font-semibold leading-[1.03] tracking-[-0.045em] sm:text-5xl">
                 Focused expertise.
                 <br />
+
                 <span className="text-[#a77d36]">
                   Practical outcomes.
                 </span>
@@ -705,7 +585,7 @@ export default function AboutPage() {
       </section>
 
       {/* =========================================================
-          APPROACH
+          HOW WE WORK
       ========================================================= */}
 
       <section className="bg-white px-6 py-24 lg:px-10 lg:py-32">
@@ -725,6 +605,7 @@ export default function AboutPage() {
                 <br />
                 Strategise.
                 <br />
+
                 <span className="text-[#a77d36]">
                   Execute.
                 </span>
@@ -734,41 +615,25 @@ export default function AboutPage() {
 
             <div className="border-t border-black/10">
 
-              {[
-                [
-                  "01",
-                  "Understand",
-                  "We begin by understanding your objectives, circumstances, market environment and the opportunity or challenge you are addressing.",
-                ],
-                [
-                  "02",
-                  "Strategise",
-                  "We assess available options and develop a structured approach aligned with your objectives and commercial priorities.",
-                ],
-                [
-                  "03",
-                  "Execute",
-                  "We help turn strategy into practical next steps, giving clients a clearer direction for moving forward.",
-                ],
-              ].map(([number, title, description]) => (
+              {approach.map((item) => (
 
                 <div
-                  key={number}
+                  key={item.number}
                   className="grid gap-5 border-b border-black/10 py-9 sm:grid-cols-[70px_1fr]"
                 >
 
                   <span className="text-sm font-bold text-[#a77d36]">
-                    {number}
+                    {item.number}
                   </span>
 
                   <div>
 
                     <h3 className="text-2xl font-semibold">
-                      {title}
+                      {item.title}
                     </h3>
 
                     <p className="mt-3 max-w-2xl text-sm leading-7 text-[#68737c]">
-                      {description}
+                      {item.description}
                     </p>
 
                   </div>
@@ -869,7 +734,7 @@ export default function AboutPage() {
                 <div className="absolute bottom-8 left-8">
 
                   <p className="text-[9px] uppercase tracking-[0.28em] text-white/25">
-                    BRIANO AND FAMILY
+                    Briano and Family
                   </p>
 
                   <p className="mt-2 text-sm font-medium">
@@ -964,7 +829,7 @@ export default function AboutPage() {
 
               <Link href="/" className="inline-block">
 
-                <div className="text-2xl font-bold tracking-[0.18em]">
+                <div className="text-2xl font-bold tracking-[0.18em] text-white">
                   BRIANO
                 </div>
 
@@ -996,23 +861,38 @@ export default function AboutPage() {
 
               <div className="mt-6 space-y-4 text-sm text-white/45">
 
-                <Link href="/about" className="block hover:text-white">
+                <Link
+                  href="/about"
+                  className="block transition hover:text-white"
+                >
                   About Us
                 </Link>
 
-                <Link href="/services" className="block hover:text-white">
+                <Link
+                  href="/services"
+                  className="block transition hover:text-white"
+                >
                   Services
                 </Link>
 
-                <Link href="/industries" className="block hover:text-white">
+                <Link
+                  href="/industries"
+                  className="block transition hover:text-white"
+                >
                   Industries
                 </Link>
 
-                <Link href="/insights" className="block hover:text-white">
+                <Link
+                  href="/insights"
+                  className="block transition hover:text-white"
+                >
                   Insights
                 </Link>
 
-                <Link href="/contact" className="block hover:text-white">
+                <Link
+                  href="/contact"
+                  className="block transition hover:text-white"
+                >
                   Contact
                 </Link>
 
@@ -1032,16 +912,25 @@ export default function AboutPage() {
 
                 <a
                   href="mailto:info@brianofamily.com"
-                  className="block hover:text-white"
+                  className="block transition hover:text-white"
                 >
-                  info@brianofamily.com
+                  info@briannofamily.com
                 </a>
 
                 <a
                   href="tel:+254742840154"
-                  className="block hover:text-white"
+                  className="block transition hover:text-white"
                 >
                   +254 742 840 154
+                </a>
+
+                <a
+                  href="https://wa.me/254742840154"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block transition hover:text-white"
+                >
+                  WhatsApp
                 </a>
 
                 <p className="leading-6">
@@ -1058,7 +947,7 @@ export default function AboutPage() {
 
           </div>
 
-          {/* BOTTOM */}
+          {/* FOOTER BOTTOM */}
 
           <div className="mt-16 flex flex-col justify-between gap-5 border-t border-white/[0.08] pt-7 text-[10px] text-white/25 sm:flex-row">
 

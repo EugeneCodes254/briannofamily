@@ -1,15 +1,6 @@
 "use client";
 
-import { useState } from "react";
-
-const navigation = [
-  ["Home", "/"],
-  ["About Us", "/about"],
-  ["Services", "/services"],
-  ["Industries", "/#industries"],
-  ["Insights", "/#insights"],
-  ["Contact", "/#contact"],
-];
+import Header from "../components/Header";
 
 const services = [
   {
@@ -110,150 +101,14 @@ const process = [
 ];
 
 export default function ServicesPage() {
-  const [menuOpen, setMenuOpen] = useState(false);
-
   return (
     <main className="min-h-screen bg-[#f5f3ee] text-[#111b27]">
 
       {/* =========================================================
-          TOP BAR
+          SHARED HEADER
       ========================================================= */}
 
-      <div className="bg-[#0d1721] px-6 py-2.5 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white/60 sm:text-xs">
-        Strategic Advisory • Business Development • International Trade
-      </div>
-
-      {/* =========================================================
-          NAVIGATION
-      ========================================================= */}
-
-      <header className="sticky top-0 z-50 border-b border-black/[0.06] bg-[#f5f3ee]/95 backdrop-blur-xl">
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-          <div className="flex h-20 items-center justify-between">
-
-            {/* Logo */}
-
-            <a href="/" className="shrink-0">
-
-              <div className="text-[20px] font-bold tracking-[0.16em] text-[#111b27]">
-                BRIANO
-              </div>
-
-              <div className="-mt-0.5 pl-[1px] text-[8px] font-semibold tracking-[0.5em] text-[#a77d36]">
-                AND FAMILY
-              </div>
-
-            </a>
-
-            {/* Desktop Navigation */}
-
-            <nav className="hidden items-center gap-7 lg:flex xl:gap-9">
-
-              {navigation.map(([label, link]) => (
-                <a
-                  key={label}
-                  href={link}
-                  className={`text-[13px] font-medium transition-colors duration-200 ${
-                    label === "Services"
-                      ? "text-[#111b27]"
-                      : "text-[#56616b] hover:text-[#111b27]"
-                  }`}
-                >
-                  {label}
-                </a>
-              ))}
-
-            </nav>
-
-            {/* CTA */}
-
-            <a
-              href="/#contact"
-              className="hidden rounded-full bg-[#a77d36] px-6 py-3 text-[13px] font-semibold text-white transition duration-200 hover:bg-[#896529] lg:inline-flex"
-            >
-              Talk to an Advisor
-            </a>
-
-            {/* Mobile Menu */}
-
-            <button
-              type="button"
-              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="relative flex h-11 w-11 items-center justify-center rounded-full border border-[#111b27]/10 lg:hidden"
-            >
-
-              <span className="sr-only">
-                {menuOpen ? "Close navigation" : "Open navigation"}
-              </span>
-
-              <span className="flex w-5 flex-col gap-1.5">
-
-                <span
-                  className={`block h-[2px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "translate-y-2 rotate-45" : ""
-                  }`}
-                />
-
-                <span
-                  className={`block h-[2px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "opacity-0" : ""
-                  }`}
-                />
-
-                <span
-                  className={`block h-[2px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "-translate-y-2 -rotate-45" : ""
-                  }`}
-                />
-
-              </span>
-
-            </button>
-
-          </div>
-
-          {/* Mobile Navigation */}
-
-          <div
-            className={`overflow-hidden transition-all duration-300 lg:hidden ${
-              menuOpen
-                ? "max-h-[650px] opacity-100"
-                : "max-h-0 opacity-0"
-            }`}
-          >
-
-            <nav className="border-t border-black/[0.06] py-5">
-
-              {navigation.map(([label, link]) => (
-                <a
-                  key={label}
-                  href={link}
-                  onClick={() => setMenuOpen(false)}
-                  className="block border-b border-black/[0.04] py-4 text-[16px] font-medium text-[#111b27]"
-                >
-                  {label}
-                </a>
-              ))}
-
-              <a
-                href="/#contact"
-                onClick={() => setMenuOpen(false)}
-                className="mt-5 flex items-center justify-center rounded-full bg-[#a77d36] px-6 py-4 text-sm font-semibold text-white"
-              >
-                Talk to an Advisor
-              </a>
-
-            </nav>
-
-          </div>
-
-        </div>
-
-      </header>
+      <Header />
 
       {/* =========================================================
           PAGE HERO
@@ -787,13 +642,17 @@ export default function ServicesPage() {
 
             <div className="lg:col-span-2">
 
-              <div className="text-2xl font-bold tracking-[0.16em]">
-                BRIANO
-              </div>
+              <a href="/" className="inline-block">
 
-              <div className="-mt-0.5 text-[8px] font-semibold tracking-[0.5em] text-[#c6a568]">
-                AND FAMILY
-              </div>
+                <div className="text-2xl font-bold tracking-[0.16em]">
+                  BRIANO
+                </div>
+
+                <div className="-mt-0.5 text-[8px] font-semibold tracking-[0.5em] text-[#c6a568]">
+                  AND FAMILY
+                </div>
+
+              </a>
 
               <p className="mt-6 max-w-lg text-sm leading-7 text-white/38">
                 Professional business advisory and consulting services across
@@ -863,7 +722,7 @@ export default function ServicesPage() {
                   href="mailto:info@brianofamily.com"
                   className="block transition hover:text-white"
                 >
-                  info@brianofamily.com
+                  info@briannofamily.com
                 </a>
 
                 <a
@@ -896,17 +755,17 @@ export default function ServicesPage() {
             <div className="flex gap-6">
 
               <a
-                href="#"
+                href="/privacy"
                 className="transition hover:text-white"
               >
                 Privacy Policy
               </a>
 
               <a
-                href="#"
+                href="/terms"
                 className="transition hover:text-white"
               >
-                Terms & Conditions
+                Terms &amp; Conditions
               </a>
 
             </div>

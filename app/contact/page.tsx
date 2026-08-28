@@ -1,15 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-
-const navigation = [
-  ["Home", "/"],
-  ["About Us", "/about"],
-  ["Services", "/services"],
-  ["Industries", "/industries"],
-  ["Insights", "/#insights"],
-  ["Contact", "/contact"],
-];
+import Header from "../components/Header";
 
 const services = [
   "Business Development",
@@ -44,7 +36,6 @@ const faqs = [
 ];
 
 export default function ContactPage() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -56,168 +47,23 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#f5f3ee] text-[#111b27]">
 
-      {/* =========================================================
-          TOP BAR
-      ========================================================= */}
+      {/* HEADER */}
+      <Header />
 
-      <div className="bg-[#0d1721] px-6 py-2.5 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white/60 sm:text-xs">
-        Strategic Advisory • Business Development • International Trade
-      </div>
-
-      {/* =========================================================
-          NAVIGATION
-      ========================================================= */}
-
-      <header className="sticky top-0 z-50 border-b border-black/[0.06] bg-[#f5f3ee]/95 backdrop-blur-xl">
-
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-          <div className="flex h-20 items-center justify-between">
-
-            {/* Logo */}
-
-            <a href="/" className="shrink-0">
-
-              <div className="text-[20px] font-bold tracking-[0.16em] text-[#111b27]">
-                BRIANO
-              </div>
-
-              <div className="-mt-0.5 pl-[1px] text-[8px] font-semibold tracking-[0.5em] text-[#a77d36]">
-                AND FAMILY
-              </div>
-
-            </a>
-
-            {/* Desktop navigation */}
-
-            <nav className="hidden items-center gap-7 lg:flex xl:gap-9">
-
-              {navigation.map(([label, link]) => (
-                <a
-                  key={label}
-                  href={link}
-                  className={`text-[13px] font-medium transition-colors duration-200 ${
-                    label === "Contact"
-                      ? "text-[#111b27]"
-                      : "text-[#56616b] hover:text-[#111b27]"
-                  }`}
-                >
-                  {label}
-                </a>
-              ))}
-
-            </nav>
-
-            {/* CTA */}
-
-            <a
-              href="mailto:info@brianofamily.com"
-              className="hidden rounded-full bg-[#a77d36] px-6 py-3 text-[13px] font-semibold text-white transition duration-200 hover:bg-[#896529] lg:inline-flex"
-            >
-              Email Us
-            </a>
-
-            {/* Mobile menu */}
-
-            <button
-              type="button"
-              aria-label={menuOpen ? "Close navigation" : "Open navigation"}
-              aria-expanded={menuOpen}
-              onClick={() => setMenuOpen(!menuOpen)}
-              className="relative flex h-11 w-11 items-center justify-center rounded-full border border-[#111b27]/10 lg:hidden"
-            >
-
-              <span className="sr-only">
-                {menuOpen ? "Close navigation" : "Open navigation"}
-              </span>
-
-              <span className="flex w-5 flex-col gap-1.5">
-
-                <span
-                  className={`block h-[2px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "translate-y-2 rotate-45" : ""
-                  }`}
-                />
-
-                <span
-                  className={`block h-[2px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "opacity-0" : ""
-                  }`}
-                />
-
-                <span
-                  className={`block h-[2px] w-full bg-[#111b27] transition duration-300 ${
-                    menuOpen ? "-translate-y-2 -rotate-45" : ""
-                  }`}
-                />
-
-              </span>
-
-            </button>
-
-          </div>
-
-          {/* Mobile navigation */}
-
-          <div
-            className={`overflow-hidden transition-all duration-300 lg:hidden ${
-              menuOpen
-                ? "max-h-[650px] opacity-100"
-                : "max-h-0 opacity-0"
-            }`}
-          >
-
-            <nav className="border-t border-black/[0.06] py-5">
-
-              {navigation.map(([label, link]) => (
-                <a
-                  key={label}
-                  href={link}
-                  onClick={() => setMenuOpen(false)}
-                  className="block border-b border-black/[0.04] py-4 text-[16px] font-medium text-[#111b27]"
-                >
-                  {label}
-                </a>
-              ))}
-
-              <a
-                href="mailto:info@brianofamily.com"
-                onClick={() => setMenuOpen(false)}
-                className="mt-5 flex items-center justify-center rounded-full bg-[#a77d36] px-6 py-4 text-sm font-semibold text-white"
-              >
-                Email Us
-              </a>
-
-            </nav>
-
-          </div>
-
-        </div>
-
-      </header>
-
-      {/* =========================================================
-          HERO
-      ========================================================= */}
-
-      <section className="relative overflow-hidden bg-[#0d1721] px-6 py-24 text-white lg:px-8 lg:py-32">
-
+      {/* HERO */}
+      <section className="relative overflow-hidden bg-[#0d1721] px-6 pb-24 pt-32 text-white lg:px-8 lg:pb-32 lg:pt-40">
         <div className="pointer-events-none absolute -right-72 -top-72 h-[800px] w-[800px] rounded-full border border-white/[0.045]" />
-
         <div className="pointer-events-none absolute -right-48 -top-48 h-[550px] w-[550px] rounded-full border border-[#b58b47]/10" />
 
         <div className="relative mx-auto max-w-7xl">
-
           <div className="max-w-4xl">
 
             <div className="mb-8 flex items-center gap-4">
-
               <span className="h-px w-12 bg-[#b99252]" />
 
               <span className="text-[10px] font-semibold uppercase tracking-[0.32em] text-[#c6a568] sm:text-xs">
                 Contact Briano and Family
               </span>
-
             </div>
 
             <h1 className="text-[48px] font-semibold leading-[0.98] tracking-[-0.045em] sm:text-6xl lg:text-[78px]">
@@ -235,23 +81,14 @@ export default function ContactPage() {
             </p>
 
           </div>
-
         </div>
-
       </section>
 
-      {/* =========================================================
-          CONTACT INFORMATION + FORM
-      ========================================================= */}
-
+      {/* CONTACT INFORMATION + FORM */}
       <section className="px-6 py-20 lg:px-8 lg:py-28">
-
         <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.75fr_1.25fr]">
 
-          {/* =====================================================
-              CONTACT INFORMATION
-          ===================================================== */}
-
+          {/* CONTACT INFORMATION */}
           <aside className="rounded-[1.75rem] bg-[#111b27] p-8 text-white sm:p-10 lg:p-12">
 
             <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#c6a568]">
@@ -268,10 +105,7 @@ export default function ContactPage() {
               steps.
             </p>
 
-            {/* Email */}
-
             <div className="mt-10 border-t border-white/10 pt-7">
-
               <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-white/30">
                 Email
               </p>
@@ -282,13 +116,9 @@ export default function ContactPage() {
               >
                 info@brianofamily.com
               </a>
-
             </div>
 
-            {/* Phone */}
-
             <div className="mt-7 border-t border-white/10 pt-7">
-
               <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-white/30">
                 Phone
               </p>
@@ -299,13 +129,9 @@ export default function ContactPage() {
               >
                 +254 742 840 154
               </a>
-
             </div>
 
-            {/* Location */}
-
             <div className="mt-7 border-t border-white/10 pt-7">
-
               <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-white/30">
                 Office
               </p>
@@ -317,10 +143,7 @@ export default function ContactPage() {
                 <br />
                 Kenya
               </p>
-
             </div>
-
-            {/* WhatsApp */}
 
             <a
               href="https://wa.me/254742840154"
@@ -328,9 +151,7 @@ export default function ContactPage() {
               rel="noopener noreferrer"
               className="mt-10 flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.04] p-5 transition hover:border-[#c6a568]/40 hover:bg-white/[0.07]"
             >
-
               <div>
-
                 <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#c6a568]">
                   Quick contact
                 </p>
@@ -338,17 +159,14 @@ export default function ContactPage() {
                 <p className="mt-2 text-sm font-semibold">
                   Message us on WhatsApp
                 </p>
-
               </div>
 
               <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[#a77d36] text-sm">
                 ↗
               </span>
-
             </a>
 
             <div className="mt-10">
-
               <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-white/25">
                 Established
               </p>
@@ -356,49 +174,37 @@ export default function ContactPage() {
               <p className="mt-2 text-sm text-white/45">
                 2019 • Nairobi, Kenya
               </p>
-
             </div>
 
           </aside>
 
-          {/* =====================================================
-              CONTACT FORM
-          ===================================================== */}
-
+          {/* FORM */}
           <div className="rounded-[1.75rem] border border-black/[0.07] bg-white p-8 shadow-sm sm:p-10 lg:p-12">
 
             {!submitted ? (
               <>
+                <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#a77d36]">
+                  Send an enquiry
+                </p>
 
-                <div>
+                <h2 className="mt-5 text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">
+                  Tell us about your requirements.
+                </h2>
 
-                  <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#a77d36]">
-                    Send an enquiry
-                  </p>
-
-                  <h2 className="mt-5 text-3xl font-semibold tracking-[-0.035em] sm:text-4xl">
-                    Tell us about your requirements.
-                  </h2>
-
-                  <p className="mt-4 max-w-2xl text-sm leading-7 text-[#68737c]">
-                    Complete the form below and provide as much information as
-                    you can. This helps us understand your enquiry before we
-                    get in touch.
-                  </p>
-
-                </div>
+                <p className="mt-4 max-w-2xl text-sm leading-7 text-[#68737c]">
+                  Complete the form below and provide as much information as
+                  you can. This helps us understand your enquiry before we
+                  get in touch.
+                </p>
 
                 <form
                   onSubmit={handleSubmit}
                   className="mt-10 space-y-6"
                 >
 
-                  {/* Name */}
-
                   <div className="grid gap-6 sm:grid-cols-2">
 
                     <div>
-
                       <label
                         htmlFor="firstName"
                         className="text-[11px] font-semibold text-[#39444d]"
@@ -414,11 +220,9 @@ export default function ContactPage() {
                         placeholder="Your first name"
                         className="mt-2 w-full rounded-xl border border-black/10 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-[#a1a6aa] focus:border-[#a77d36] focus:ring-2 focus:ring-[#a77d36]/10"
                       />
-
                     </div>
 
                     <div>
-
                       <label
                         htmlFor="lastName"
                         className="text-[11px] font-semibold text-[#39444d]"
@@ -434,15 +238,11 @@ export default function ContactPage() {
                         placeholder="Your last name"
                         className="mt-2 w-full rounded-xl border border-black/10 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-[#a1a6aa] focus:border-[#a77d36] focus:ring-2 focus:ring-[#a77d36]/10"
                       />
-
                     </div>
 
                   </div>
 
-                  {/* Company */}
-
                   <div>
-
                     <label
                       htmlFor="company"
                       className="text-[11px] font-semibold text-[#39444d]"
@@ -457,15 +257,11 @@ export default function ContactPage() {
                       placeholder="Company or organisation name"
                       className="mt-2 w-full rounded-xl border border-black/10 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-[#a1a6aa] focus:border-[#a77d36] focus:ring-2 focus:ring-[#a77d36]/10"
                     />
-
                   </div>
-
-                  {/* Email / Phone */}
 
                   <div className="grid gap-6 sm:grid-cols-2">
 
                     <div>
-
                       <label
                         htmlFor="email"
                         className="text-[11px] font-semibold text-[#39444d]"
@@ -481,11 +277,9 @@ export default function ContactPage() {
                         placeholder="you@company.com"
                         className="mt-2 w-full rounded-xl border border-black/10 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-[#a1a6aa] focus:border-[#a77d36] focus:ring-2 focus:ring-[#a77d36]/10"
                       />
-
                     </div>
 
                     <div>
-
                       <label
                         htmlFor="phone"
                         className="text-[11px] font-semibold text-[#39444d]"
@@ -500,15 +294,11 @@ export default function ContactPage() {
                         placeholder="+254 ..."
                         className="mt-2 w-full rounded-xl border border-black/10 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-[#a1a6aa] focus:border-[#a77d36] focus:ring-2 focus:ring-[#a77d36]/10"
                       />
-
                     </div>
 
                   </div>
 
-                  {/* Service */}
-
                   <div>
-
                     <label
                       htmlFor="service"
                       className="text-[11px] font-semibold text-[#39444d]"
@@ -523,7 +313,6 @@ export default function ContactPage() {
                       defaultValue=""
                       className="mt-2 w-full rounded-xl border border-black/10 bg-[#faf9f6] px-4 py-3.5 text-sm text-[#39444d] outline-none transition focus:border-[#a77d36] focus:ring-2 focus:ring-[#a77d36]/10"
                     >
-
                       <option value="" disabled>
                         Select a service
                       </option>
@@ -533,17 +322,12 @@ export default function ContactPage() {
                           {service}
                         </option>
                       ))}
-
                     </select>
-
                   </div>
-
-                  {/* Budget / Country */}
 
                   <div className="grid gap-6 sm:grid-cols-2">
 
                     <div>
-
                       <label
                         htmlFor="country"
                         className="text-[11px] font-semibold text-[#39444d]"
@@ -558,11 +342,9 @@ export default function ContactPage() {
                         placeholder="e.g. Kenya"
                         className="mt-2 w-full rounded-xl border border-black/10 bg-[#faf9f6] px-4 py-3.5 text-sm outline-none transition placeholder:text-[#a1a6aa] focus:border-[#a77d36] focus:ring-2 focus:ring-[#a77d36]/10"
                       />
-
                     </div>
 
                     <div>
-
                       <label
                         htmlFor="preferredContact"
                         className="text-[11px] font-semibold text-[#39444d]"
@@ -580,15 +362,11 @@ export default function ContactPage() {
                         <option>Phone</option>
                         <option>WhatsApp</option>
                       </select>
-
                     </div>
 
                   </div>
 
-                  {/* Message */}
-
                   <div>
-
                     <label
                       htmlFor="message"
                       className="text-[11px] font-semibold text-[#39444d]"
@@ -604,13 +382,9 @@ export default function ContactPage() {
                       placeholder="Please tell us briefly about your business, opportunity or requirements..."
                       className="mt-2 w-full resize-none rounded-xl border border-black/10 bg-[#faf9f6] px-4 py-3.5 text-sm leading-7 outline-none transition placeholder:text-[#a1a6aa] focus:border-[#a77d36] focus:ring-2 focus:ring-[#a77d36]/10"
                     />
-
                   </div>
 
-                  {/* Privacy */}
-
                   <label className="flex items-start gap-3">
-
                     <input
                       type="checkbox"
                       required
@@ -621,10 +395,7 @@ export default function ContactPage() {
                       I agree that Briano and Family may use the information
                       provided to respond to my enquiry.
                     </span>
-
                   </label>
-
-                  {/* Submit */}
 
                   <button
                     type="submit"
@@ -640,22 +411,14 @@ export default function ContactPage() {
                   </p>
 
                 </form>
-
               </>
             ) : (
-
-              /* =================================================
-                 SUCCESS STATE
-              ================================================= */
-
               <div className="flex min-h-[650px] flex-col items-center justify-center text-center">
 
                 <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#a77d36]/10">
-
                   <div className="flex h-12 w-12 items-center justify-center rounded-full bg-[#a77d36] text-xl text-white">
                     ✓
                   </div>
-
                 </div>
 
                 <p className="mt-8 text-[10px] font-bold uppercase tracking-[0.3em] text-[#a77d36]">
@@ -681,26 +444,17 @@ export default function ContactPage() {
                 </button>
 
               </div>
-
             )}
 
           </div>
-
         </div>
-
       </section>
 
-      {/* =========================================================
-          OFFICE / LOCATION
-      ========================================================= */}
-
+      {/* OFFICE */}
       <section className="bg-white px-6 py-24 lg:px-8 lg:py-28">
-
         <div className="mx-auto max-w-7xl">
 
           <div className="grid overflow-hidden rounded-[2rem] bg-[#eae7de] lg:grid-cols-2">
-
-            {/* Location information */}
 
             <div className="p-8 sm:p-12 lg:p-16">
 
@@ -750,8 +504,6 @@ export default function ContactPage() {
 
             </div>
 
-            {/* Map-style visual */}
-
             <div className="relative min-h-[400px] overflow-hidden bg-[#172632] lg:min-h-full">
 
               <div
@@ -764,25 +516,17 @@ export default function ContactPage() {
               />
 
               <div className="absolute left-[15%] top-[18%] h-[65%] w-px rotate-[25deg] bg-white/10" />
-
               <div className="absolute left-[40%] top-[5%] h-[100%] w-px -rotate-[38deg] bg-white/10" />
-
               <div className="absolute right-[20%] top-[10%] h-[80%] w-px rotate-[62deg] bg-white/10" />
-
               <div className="absolute left-[5%] top-[48%] h-px w-[90%] rotate-[8deg] bg-white/10" />
-
               <div className="absolute left-[10%] top-[65%] h-px w-[80%] -rotate-[15deg] bg-white/10" />
-
-              {/* Location marker */}
 
               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
 
                 <div className="absolute -inset-8 animate-pulse rounded-full bg-[#a77d36]/10" />
 
                 <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-[#a77d36] shadow-[0_0_50px_rgba(167,125,54,0.4)]">
-
                   <div className="h-4 w-4 rounded-full bg-white" />
-
                 </div>
 
               </div>
@@ -802,21 +546,15 @@ export default function ContactPage() {
             </div>
 
           </div>
-
         </div>
-
       </section>
 
-      {/* =========================================================
-          FAQ
-      ========================================================= */}
-
+      {/* FAQ */}
       <section className="bg-[#f5f3ee] px-6 py-24 lg:px-8 lg:py-32">
 
         <div className="mx-auto grid max-w-7xl gap-14 lg:grid-cols-[0.65fr_1.35fr]">
 
           <div>
-
             <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[#a77d36]">
               Frequently asked
             </p>
@@ -824,9 +562,8 @@ export default function ContactPage() {
             <h2 className="mt-6 text-[40px] font-semibold leading-[1.05] tracking-[-0.04em] sm:text-5xl">
               Questions
               <br />
-              & answers.
+              &amp; answers.
             </h2>
-
           </div>
 
           <div className="border-t border-black/10">
@@ -873,11 +610,9 @@ export default function ContactPage() {
                   >
 
                     <div className="overflow-hidden">
-
                       <p className="max-w-2xl text-sm leading-7 text-[#68737c]">
                         {faq.answer}
                       </p>
-
                     </div>
 
                   </div>
@@ -887,15 +622,10 @@ export default function ContactPage() {
             })}
 
           </div>
-
         </div>
-
       </section>
 
-      {/* =========================================================
-          FINAL CTA
-      ========================================================= */}
-
+      {/* FINAL CTA */}
       <section className="relative overflow-hidden bg-[#a77d36] px-6 py-24 text-white lg:px-8 lg:py-28">
 
         <div className="absolute -right-40 -top-40 h-[500px] w-[500px] rounded-full border border-white/10" />
@@ -908,15 +638,11 @@ export default function ContactPage() {
 
           <div className="mt-6 flex flex-col justify-between gap-10 lg:flex-row lg:items-end">
 
-            <div>
-
-              <h2 className="max-w-4xl text-[44px] font-semibold leading-[1] tracking-[-0.04em] sm:text-6xl">
-                Good decisions begin
-                <br />
-                with a conversation.
-              </h2>
-
-            </div>
+            <h2 className="max-w-4xl text-[44px] font-semibold leading-[1] tracking-[-0.04em] sm:text-6xl">
+              Good decisions begin
+              <br />
+              with a conversation.
+            </h2>
 
             <div className="flex flex-col gap-3 sm:flex-row">
 
@@ -937,26 +663,19 @@ export default function ContactPage() {
             </div>
 
           </div>
-
         </div>
-
       </section>
 
-      {/* =========================================================
-          FOOTER
-      ========================================================= */}
-
+      {/* FOOTER */}
       <footer className="bg-[#080f16] px-6 py-14 text-white lg:px-8">
 
         <div className="mx-auto max-w-7xl">
 
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
 
-            {/* Brand */}
-
             <div className="lg:col-span-2">
 
-              <div className="text-2xl font-bold tracking-[0.16em]">
+              <div className="text-2xl font-bold tracking-[0.16em] text-white">
                 BRIANO
               </div>
 
@@ -976,8 +695,6 @@ export default function ContactPage() {
 
             </div>
 
-            {/* Company */}
-
             <div>
 
               <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-white/30">
@@ -986,39 +703,24 @@ export default function ContactPage() {
 
               <div className="mt-5 space-y-3 text-sm text-white/50">
 
-                <a
-                  href="/about"
-                  className="block transition hover:text-white"
-                >
+                <a href="/about" className="block transition hover:text-white">
                   About Us
                 </a>
 
-                <a
-                  href="/services"
-                  className="block transition hover:text-white"
-                >
+                <a href="/services" className="block transition hover:text-white">
                   Services
                 </a>
 
-                <a
-                  href="/industries"
-                  className="block transition hover:text-white"
-                >
+                <a href="/industries" className="block transition hover:text-white">
                   Industries
                 </a>
 
-                <a
-                  href="/#insights"
-                  className="block transition hover:text-white"
-                >
+                <a href="/#insights" className="block transition hover:text-white">
                   Insights
                 </a>
 
               </div>
-
             </div>
-
-            {/* Contact */}
 
             <div>
 
@@ -1032,7 +734,7 @@ export default function ContactPage() {
                   href="mailto:info@brianofamily.com"
                   className="block transition hover:text-white"
                 >
-                  info@brianofamily.com
+                  info@briannofamily.com
                 </a>
 
                 <a
@@ -1060,7 +762,6 @@ export default function ContactPage() {
                 </p>
 
               </div>
-
             </div>
 
           </div>
@@ -1073,17 +774,11 @@ export default function ContactPage() {
 
             <div className="flex gap-6">
 
-              <a
-                href="#"
-                className="transition hover:text-white"
-              >
+              <a href="#" className="transition hover:text-white">
                 Privacy Policy
               </a>
 
-              <a
-                href="#"
-                className="transition hover:text-white"
-              >
+              <a href="#" className="transition hover:text-white">
                 Terms &amp; Conditions
               </a>
 
