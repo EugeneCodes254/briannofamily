@@ -92,18 +92,15 @@ export default function Home() {
       </div>
 
       {/* =========================================================
-          FIXED NAVIGATION
+          NAVIGATION
       ========================================================= */}
 
       <header className="fixed left-0 right-0 top-0 z-[100] border-b border-black/[0.08] bg-[#f4f1ea]/95 shadow-[0_4px_25px_rgba(0,0,0,0.04)] backdrop-blur-xl">
-
         <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
 
           <div className="flex h-[88px] items-center justify-between">
 
-            {/* =====================================================
-                LOGO + COMPANY NAME — LEFT
-            ===================================================== */}
+            {/* LOGO */}
 
             <Link
               href="/"
@@ -111,8 +108,6 @@ export default function Home() {
               className="group flex items-center"
             >
               <div className="flex items-center gap-3">
-
-                {/* Logo */}
 
                 <div className="flex h-[58px] w-[58px] items-center justify-center overflow-hidden">
                   <Image
@@ -125,10 +120,7 @@ export default function Home() {
                   />
                 </div>
 
-                {/* Company name */}
-
                 <div className="flex flex-col justify-center leading-none">
-
                   <span className="text-[18px] font-bold tracking-[0.08em] text-[#101820] transition-colors duration-300 group-hover:text-[#a77d36] sm:text-[21px]">
                     BRIANNO
                   </span>
@@ -136,22 +128,18 @@ export default function Home() {
                   <span className="mt-1 text-[9px] font-bold tracking-[0.32em] text-[#a77d36] sm:text-[10px]">
                     & FAMILY
                   </span>
-
                 </div>
 
               </div>
             </Link>
 
-            {/* =====================================================
-                DESKTOP NAVIGATION — RIGHT
-            ===================================================== */}
+            {/* DESKTOP NAVIGATION */}
 
             <div className="hidden items-center lg:flex">
 
               <nav className="flex items-center gap-7 xl:gap-10">
 
                 {navigation.map(([label, href], index) => (
-
                   <Link
                     key={label}
                     href={href}
@@ -161,7 +149,6 @@ export default function Home() {
                         : "text-[#66717a] hover:text-[#101820]"
                     }`}
                   >
-
                     {label}
 
                     <span
@@ -171,14 +158,10 @@ export default function Home() {
                           : "w-0 group-hover:w-full"
                       }`}
                     />
-
                   </Link>
-
                 ))}
 
               </nav>
-
-              {/* Contact button */}
 
               <Link
                 href="/contact"
@@ -189,14 +172,11 @@ export default function Home() {
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-
               </Link>
 
             </div>
 
-            {/* =====================================================
-                MOBILE MENU BUTTON
-            ===================================================== */}
+            {/* MOBILE MENU BUTTON */}
 
             <button
               type="button"
@@ -205,7 +185,6 @@ export default function Home() {
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-black/10 lg:hidden"
             >
-
               <span className="flex w-5 flex-col gap-[5px]">
 
                 <span
@@ -231,14 +210,11 @@ export default function Home() {
                 />
 
               </span>
-
             </button>
 
           </div>
 
-          {/* =====================================================
-              MOBILE NAVIGATION
-          ===================================================== */}
+          {/* MOBILE NAVIGATION */}
 
           <div
             className={`overflow-hidden transition-all duration-500 lg:hidden ${
@@ -247,26 +223,21 @@ export default function Home() {
                 : "max-h-0 opacity-0"
             }`}
           >
-
             <nav className="border-t border-black/[0.06] py-5">
 
               {navigation.map(([label, href]) => (
-
                 <Link
                   key={label}
                   href={href}
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center justify-between border-b border-black/[0.05] py-5 text-[16px] font-medium"
                 >
-
                   {label}
 
                   <span className="text-[#a77d36]">
                     ↗
                   </span>
-
                 </Link>
-
               ))}
 
               <Link
@@ -278,48 +249,99 @@ export default function Home() {
               </Link>
 
             </nav>
-
           </div>
 
         </div>
-
       </header>
 
       {/* =========================================================
           PAGE CONTENT
-          Added top padding because header is FIXED
       ========================================================= */}
 
       <div className="pt-[88px]">
 
         {/* =======================================================
-            HERO
+            FULL HERO SECTION
         ======================================================= */}
 
-        <section className="relative min-h-[720px] overflow-hidden bg-[#0b141d] text-white lg:min-h-[850px]">
+        <section className="relative min-h-[760px] overflow-hidden bg-[#101820] text-white lg:min-h-[850px]">
+
+          {/* =====================================================
+              FULL HERO BACKGROUND IMAGE
+          ===================================================== */}
+
+          <div className="absolute inset-0">
+
+            <Image
+              src="/landing page2.jpg"
+              alt="Brianno and Family strategic advisory"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center"
+            />
+
+          </div>
+
+          {/* =====================================================
+              IMAGE VISIBILITY / GRADIENT
+          ===================================================== */}
+
+          {/* Left side is darker for text readability,
+              right side keeps more of the image visible */}
+
+          <div className="absolute inset-0 bg-gradient-to-r from-[#071018]/80 via-[#071018]/45 to-[#071018]/20" />
+
+          {/* Bottom readability */}
+
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071018]/75 via-transparent to-[#071018]/20" />
+
+          {/* Very subtle overall tint */}
+
+          <div className="absolute inset-0 bg-[#0b141d]/10" />
+
+          {/* =====================================================
+              DECORATIVE ATMOSPHERE
+          ===================================================== */}
 
           <div className="pointer-events-none absolute -right-[250px] -top-[300px] h-[850px] w-[850px] rounded-full bg-[#b38a4a]/10 blur-[100px]" />
 
-          <div className="pointer-events-none absolute -bottom-[400px] left-[10%] h-[700px] w-[700px] rounded-full bg-[#294355]/30 blur-[120px]" />
+          <div className="pointer-events-none absolute -bottom-[400px] left-[10%] h-[700px] w-[700px] rounded-full bg-[#294355]/20 blur-[120px]" />
+
+          {/* =====================================================
+              SUBTLE GRID
+          ===================================================== */}
 
           <div
             className="pointer-events-none absolute inset-0 opacity-[0.045]"
             style={{
               backgroundImage:
-                "linear-gradient(rgba(255,255,255,.35) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.35) 1px, transparent 1px)",
-              backgroundSize: "70px 70px",
+                "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
+              backgroundSize: "80px 80px",
             }}
           />
 
-          <div className="pointer-events-none absolute -right-[180px] top-[80px] h-[650px] w-[650px] rounded-full border border-white/[0.06]" />
+          {/* =====================================================
+              CIRCULAR DESIGN ELEMENTS
+          ===================================================== */}
 
-          <div className="pointer-events-none absolute -right-[100px] top-[160px] h-[490px] w-[490px] rounded-full border border-[#c6a568]/10" />
+          <div className="pointer-events-none absolute -right-[180px] top-[70px] h-[650px] w-[650px] rounded-full border border-white/[0.10]" />
 
-          <div className="relative mx-auto grid min-h-[720px] max-w-[1440px] items-center gap-16 px-5 py-20 sm:px-8 lg:min-h-[850px] lg:grid-cols-[1.15fr_.85fr] lg:px-12 lg:py-24">
+          <div className="pointer-events-none absolute -right-[100px] top-[140px] h-[500px] w-[500px] rounded-full border border-[#c6a568]/20" />
 
-            <div className="relative z-10">
+          <div className="pointer-events-none absolute -right-[20px] top-[220px] h-[330px] w-[330px] rounded-full border border-white/[0.08]" />
 
-              <div className="mb-9 flex items-center gap-4">
+          {/* =====================================================
+              HERO CONTENT
+          ===================================================== */}
+
+          <div className="relative z-10 mx-auto flex min-h-[760px] max-w-[1440px] items-center px-5 py-24 sm:px-8 lg:min-h-[850px] lg:px-12">
+
+            <div className="w-full max-w-[850px]">
+
+              {/* Label */}
+
+              <div className="mb-8 flex items-center gap-4">
 
                 <div className="h-px w-14 bg-[#c6a568]" />
 
@@ -329,7 +351,9 @@ export default function Home() {
 
               </div>
 
-              <h1 className="max-w-[850px] text-[50px] font-semibold leading-[0.94] tracking-[-0.055em] sm:text-[68px] md:text-[78px] lg:text-[82px] xl:text-[96px]">
+              {/* Main Heading */}
+
+              <h1 className="max-w-[950px] text-[52px] font-semibold leading-[0.94] tracking-[-0.055em] sm:text-[68px] md:text-[78px] lg:text-[88px] xl:text-[96px]">
 
                 Strategy that
 
@@ -345,159 +369,71 @@ export default function Home() {
 
               </h1>
 
-              <p className="mt-9 max-w-[650px] text-[16px] leading-8 text-white/55 sm:text-[18px]">
+              {/* Description */}
+
+              <p className="mt-9 max-w-[650px] text-[16px] leading-8 text-white/75 sm:text-[18px]">
                 Brianno and Family is a professional advisory firm helping
                 organisations identify opportunities, enter markets,
                 strengthen commercial positions and make informed strategic
                 decisions.
               </p>
 
+              {/* Buttons */}
+
               <div className="mt-10 flex flex-col gap-3 sm:flex-row">
 
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center justify-center gap-4 rounded-full bg-[#b38a4a] px-7 py-4 text-sm font-semibold text-white transition duration-300 hover:bg-[#c19a5d]"
+                  className="group inline-flex items-center justify-center gap-4 rounded-full bg-[#b38a4a] px-7 py-4 text-sm font-semibold text-white shadow-[0_15px_40px_rgba(0,0,0,.25)] transition duration-300 hover:bg-[#c19a5d]"
                 >
                   Talk to an Advisor
 
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     ↗
                   </span>
-
                 </Link>
 
                 <Link
                   href="/services"
-                  className="inline-flex items-center justify-center rounded-full border border-white/15 px-7 py-4 text-sm font-semibold text-white transition duration-300 hover:border-white/40 hover:bg-white/[0.04]"
+                  className="inline-flex items-center justify-center rounded-full border border-white/25 bg-black/10 px-7 py-4 text-sm font-semibold text-white backdrop-blur-sm transition duration-300 hover:border-white/50 hover:bg-white/10"
                 >
                   Explore Our Expertise
                 </Link>
 
               </div>
 
-              <div className="mt-16 grid max-w-[620px] grid-cols-3 border-t border-white/10 pt-7">
+              {/* Stats */}
+
+              <div className="mt-16 grid max-w-[620px] grid-cols-3 border-t border-white/20 pt-7">
 
                 <div>
-
                   <p className="text-2xl font-semibold sm:text-3xl">
                     2019
                   </p>
 
-                  <p className="mt-2 text-[9px] uppercase tracking-[0.25em] text-white/30">
+                  <p className="mt-2 text-[9px] uppercase tracking-[0.25em] text-white/50">
                     Established
                   </p>
-
                 </div>
 
-                <div className="border-l border-white/10 pl-5 sm:pl-9">
-
+                <div className="border-l border-white/20 pl-5 sm:pl-9">
                   <p className="text-2xl font-semibold sm:text-3xl">
                     04
                   </p>
 
-                  <p className="mt-2 text-[9px] uppercase tracking-[0.25em] text-white/30">
+                  <p className="mt-2 text-[9px] uppercase tracking-[0.25em] text-white/50">
                     Advisory Areas
                   </p>
-
                 </div>
 
-                <div className="border-l border-white/10 pl-5 sm:pl-9">
-
+                <div className="border-l border-white/20 pl-5 sm:pl-9">
                   <p className="text-2xl font-semibold sm:text-3xl">
                     01
                   </p>
 
-                  <p className="mt-2 text-[9px] uppercase tracking-[0.25em] text-white/30">
+                  <p className="mt-2 text-[9px] uppercase tracking-[0.25em] text-white/50">
                     Strategic Focus
                   </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* HERO VISUAL */}
-
-            <div className="relative hidden lg:flex lg:justify-end">
-
-              <div className="relative h-[610px] w-[460px]">
-
-                <div className="absolute right-0 top-0 h-[520px] w-[390px] rotate-[5deg] rounded-[2rem] border border-white/10 bg-[#14222d] opacity-50" />
-
-                <div className="absolute right-5 top-10 h-[560px] w-[410px] overflow-hidden rounded-[2rem] border border-white/10 bg-[#162632] shadow-[0_50px_120px_rgba(0,0,0,.45)]">
-
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#263b49] via-[#15242e] to-[#070d12]" />
-
-                  <div className="absolute left-[50%] top-[-50px] h-[650px] w-px bg-white/[0.07]" />
-
-                  <div className="absolute left-[25%] top-0 h-full w-px bg-white/[0.04]" />
-
-                  <div className="absolute left-0 top-[34%] h-px w-full bg-white/[0.05]" />
-
-                  <div className="absolute left-0 top-[58%] h-px w-full bg-white/[0.05]" />
-
-                  <div className="absolute -right-[100px] top-[60px] h-[400px] w-[400px] rounded-full border border-[#c6a568]/20" />
-
-                  <div className="absolute -right-[45px] top-[115px] h-[290px] w-[290px] rounded-full border border-white/[0.08]" />
-
-                  <div className="absolute bottom-0 left-0 h-[65%] w-full bg-gradient-to-t from-[#060c11] via-[#060c11]/80 to-transparent" />
-
-                  <div className="absolute left-9 top-9 flex items-center gap-3">
-
-                    <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[#c6a568]/30">
-
-                      <div className="h-2.5 w-2.5 rounded-full bg-[#c6a568]" />
-
-                    </div>
-
-                    <div>
-
-                      <p className="text-[8px] uppercase tracking-[0.3em] text-white/30">
-                        Advisory
-                      </p>
-
-                      <p className="mt-1 text-[11px] font-semibold tracking-[0.12em]">
-                        BRIANNO & FAMILY
-                      </p>
-
-                    </div>
-
-                  </div>
-
-                  <div className="absolute bottom-9 left-9 right-9">
-
-                    <p className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#c6a568]">
-                      Strategic Perspective
-                    </p>
-
-                    <h2 className="mt-5 text-[35px] font-semibold leading-[1.02] tracking-[-0.04em]">
-                      Commercial
-                      <br />
-                      clarity.
-                    </h2>
-
-                    <div className="mt-7 h-px bg-white/10" />
-
-                    <p className="mt-5 max-w-[300px] text-xs leading-6 text-white/35">
-                      Turning complex commercial questions into clear
-                      strategic direction.
-                    </p>
-
-                  </div>
-
-                </div>
-
-                <div className="absolute -bottom-3 -left-2 z-20 rounded-2xl border border-white/10 bg-[#172631]/95 px-6 py-5 shadow-2xl backdrop-blur-xl">
-
-                  <p className="text-[8px] uppercase tracking-[0.25em] text-white/30">
-                    Headquarters
-                  </p>
-
-                  <p className="mt-1 text-sm font-semibold">
-                    Nairobi, Kenya
-                  </p>
-
                 </div>
 
               </div>
@@ -506,13 +442,49 @@ export default function Home() {
 
           </div>
 
-          <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 items-center gap-4 lg:flex">
+          {/* =====================================================
+              HERO BOTTOM MESSAGE
+          ===================================================== */}
 
-            <span className="text-[8px] uppercase tracking-[0.35em] text-white/25">
+          <div className="absolute bottom-10 right-5 z-20 hidden max-w-[330px] lg:block lg:right-12">
+
+            <div className="rounded-2xl border border-white/15 bg-black/20 p-6 backdrop-blur-md">
+
+              <div className="mb-4 flex items-center gap-3">
+
+                <span className="h-px w-10 bg-[#c6a568]" />
+
+                <p className="text-[9px] font-semibold uppercase tracking-[0.35em] text-[#c6a568]">
+                  Strategic Perspective
+                </p>
+
+              </div>
+
+              <h2 className="text-[32px] font-semibold leading-[.95] tracking-[-0.04em]">
+                Commercial{" "}
+                <span className="text-[#c6a568]">
+                  clarity.
+                </span>
+              </h2>
+
+              <p className="mt-4 text-[12px] leading-6 text-white/60">
+                Turning complex commercial questions into clear strategic
+                direction.
+              </p>
+
+            </div>
+
+          </div>
+
+          {/* Scroll */}
+
+          <div className="absolute bottom-8 left-1/2 z-20 hidden -translate-x-1/2 items-center gap-4 lg:flex">
+
+            <span className="text-[8px] uppercase tracking-[0.35em] text-white/50">
               Scroll to explore
             </span>
 
-            <span className="h-10 w-px bg-white/15" />
+            <span className="h-10 w-px bg-white/25" />
 
           </div>
 
@@ -527,7 +499,6 @@ export default function Home() {
           <div className="mx-auto grid max-w-[1440px] grid-cols-2 divide-x divide-black/[0.08] sm:grid-cols-4">
 
             <div className="px-5 py-8 sm:px-10">
-
               <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#a77d36]">
                 Focus
               </p>
@@ -535,11 +506,9 @@ export default function Home() {
               <p className="mt-2 text-sm font-semibold">
                 Commercial Growth
               </p>
-
             </div>
 
             <div className="px-5 py-8 sm:px-10">
-
               <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#a77d36]">
                 Expertise
               </p>
@@ -547,11 +516,9 @@ export default function Home() {
               <p className="mt-2 text-sm font-semibold">
                 Strategic Advisory
               </p>
-
             </div>
 
             <div className="border-t border-black/[0.08] px-5 py-8 sm:border-t-0 sm:px-10">
-
               <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#a77d36]">
                 Geography
               </p>
@@ -559,11 +526,9 @@ export default function Home() {
               <p className="mt-2 text-sm font-semibold">
                 Kenya & Beyond
               </p>
-
             </div>
 
             <div className="border-t border-black/[0.08] px-5 py-8 sm:border-t-0 sm:px-10">
-
               <p className="text-[9px] font-bold uppercase tracking-[0.25em] text-[#a77d36]">
                 Established
               </p>
@@ -571,7 +536,6 @@ export default function Home() {
               <p className="mt-2 text-sm font-semibold">
                 2019
               </p>
-
             </div>
 
           </div>
@@ -587,7 +551,6 @@ export default function Home() {
           <div className="mx-auto grid max-w-[1440px] gap-16 lg:grid-cols-[0.55fr_1.45fr]">
 
             <div>
-
               <div className="sticky top-32">
 
                 <p className="text-[9px] font-bold uppercase tracking-[0.35em] text-[#a77d36]">
@@ -597,16 +560,18 @@ export default function Home() {
                 <div className="mt-6 h-px w-16 bg-[#a77d36]" />
 
               </div>
-
             </div>
 
             <div>
 
               <h2 className="max-w-[1050px] text-[40px] font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl lg:text-[66px]">
+
                 Better decisions begin with
+
                 <span className="text-[#a77d36]">
                   {" "}better perspective.
                 </span>
+
               </h2>
 
               <div className="mt-10 grid gap-10 md:grid-cols-2">
@@ -634,7 +599,6 @@ export default function Home() {
                 <span className="flex h-9 w-9 items-center justify-center rounded-full border border-black/10 transition duration-300 group-hover:border-[#a77d36] group-hover:bg-[#a77d36] group-hover:text-white">
                   →
                 </span>
-
               </Link>
 
             </div>
@@ -660,11 +624,15 @@ export default function Home() {
                 </p>
 
                 <h2 className="mt-6 max-w-[800px] text-[43px] font-semibold leading-[1] tracking-[-0.05em] sm:text-5xl lg:text-[70px]">
+
                   What we
+
                   <br />
+
                   <span className="text-[#a77d36]">
                     do best.
                   </span>
+
                 </h2>
 
               </div>
@@ -707,14 +675,12 @@ export default function Home() {
                     <div className="mt-5 flex flex-wrap gap-x-6 gap-y-2">
 
                       {service.points.map((point) => (
-
                         <span
                           key={point}
                           className="text-[10px] font-medium text-black/45"
                         >
                           · {point}
                         </span>
-
                       ))}
 
                     </div>
@@ -742,7 +708,6 @@ export default function Home() {
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
-
               </Link>
 
             </div>
@@ -768,7 +733,9 @@ export default function Home() {
             </p>
 
             <h2 className="mx-auto mt-8 max-w-[1100px] text-[42px] font-semibold leading-[1.02] tracking-[-0.05em] sm:text-5xl lg:text-[72px]">
+
               We do not simply identify
+
               <span className="text-[#c6a568]">
                 {" "}opportunities.
               </span>
@@ -776,6 +743,7 @@ export default function Home() {
               <br />
 
               We help make them actionable.
+
             </h2>
 
             <p className="mx-auto mt-9 max-w-2xl text-[15px] leading-8 text-white/40">
@@ -804,11 +772,15 @@ export default function Home() {
                 </p>
 
                 <h2 className="mt-6 text-[42px] font-semibold leading-[1] tracking-[-0.05em] sm:text-5xl lg:text-[62px]">
+
                   Thinking beyond
+
                   <br />
+
                   <span className="text-[#a77d36]">
                     the obvious.
                   </span>
+
                 </h2>
 
               </div>
@@ -888,11 +860,15 @@ export default function Home() {
                 </p>
 
                 <h2 className="mt-6 max-w-[850px] text-[42px] font-semibold leading-[1] tracking-[-0.05em] sm:text-5xl lg:text-[64px]">
+
                   Experience across
+
                   <br />
+
                   <span className="text-[#a77d36]">
                     commercial environments.
                   </span>
+
                 </h2>
 
               </div>
@@ -906,7 +882,6 @@ export default function Home() {
                 <span className="transition-transform group-hover:translate-x-1">
                   →
                 </span>
-
               </Link>
 
             </div>
@@ -972,13 +947,19 @@ export default function Home() {
                 </p>
 
                 <h2 className="mt-6 text-[45px] font-semibold leading-[.95] tracking-[-0.055em] sm:text-5xl lg:text-[68px]">
+
                   Understand.
+
                   <br />
+
                   Strategise.
+
                   <br />
+
                   <span className="text-[#a77d36]">
                     Execute.
                   </span>
+
                 </h2>
 
               </div>
@@ -1053,11 +1034,15 @@ export default function Home() {
                 </p>
 
                 <h2 className="mt-6 text-[42px] font-semibold leading-[1] tracking-[-0.05em] sm:text-5xl lg:text-[62px]">
+
                   Ideas worth
+
                   <br />
+
                   <span className="text-[#a77d36]">
                     thinking about.
                   </span>
+
                 </h2>
 
               </div>
@@ -1071,7 +1056,6 @@ export default function Home() {
                 <span className="transition-transform group-hover:translate-x-1">
                   →
                 </span>
-
               </Link>
 
             </div>
@@ -1161,13 +1145,19 @@ export default function Home() {
             <div className="mt-7 grid gap-14 lg:grid-cols-[1fr_330px] lg:items-end">
 
               <h2 className="max-w-[1000px] text-[48px] font-semibold leading-[.95] tracking-[-0.055em] sm:text-6xl lg:text-[82px]">
+
                 Have an opportunity
+
                 <br />
+
                 in mind?
+
                 <br />
+
                 <span className="text-white/55">
                   Let&apos;s talk.
                 </span>
+
               </h2>
 
               <div>
@@ -1195,7 +1185,10 @@ export default function Home() {
                   className="mt-8 inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-semibold text-[#8c682d] transition hover:bg-[#101820] hover:text-white"
                 >
                   Contact Brianno & Family
-                  <span>↗</span>
+
+                  <span>
+                    ↗
+                  </span>
                 </Link>
 
               </div>

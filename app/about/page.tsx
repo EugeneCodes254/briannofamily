@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -83,67 +84,92 @@ export default function AboutPage() {
     <main className="min-h-screen overflow-x-hidden bg-[#f5f3ee] text-[#111b27]">
 
       {/* =========================================================
-          SHARED HEADER
-          Uses app/components/Header.tsx
+          HEADER
       ========================================================= */}
 
       <Header />
 
       {/* =========================================================
           HERO
+          Background image: /about page.png
       ========================================================= */}
 
-      <section className="relative min-h-[720px] overflow-hidden bg-[#0b141d] text-white">
+      <section className="relative min-h-[760px] overflow-hidden bg-[#111b27] text-white">
 
-        {/* Decorative circles */}
+        {/* MAIN BACKGROUND IMAGE */}
 
-        <div className="pointer-events-none absolute -right-[360px] -top-[360px] h-[820px] w-[820px] rounded-full border border-white/[0.045]" />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: "url('/about page.png')",
+          }}
+        />
 
-        <div className="pointer-events-none absolute -right-[230px] -top-[230px] h-[560px] w-[560px] rounded-full border border-[#c6a568]/10" />
+        {/* LIGHTER IMAGE OVERLAY
+            The image remains visible while text stays readable. */}
 
-        <div className="pointer-events-none absolute -bottom-[300px] -left-[200px] h-[600px] w-[600px] rounded-full border border-white/[0.025]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#07111b]/75 via-[#0b1722]/45 to-[#0b1722]/25" />
 
-        {/* Grid */}
+        {/* Bottom gradient */}
+
+        <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-[#08111a]/80 via-[#08111a]/20 to-transparent" />
+
+        {/* Very subtle grid */}
 
         <div
           className="pointer-events-none absolute inset-0 opacity-[0.035]"
           style={{
             backgroundImage:
-              "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
+              "linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)",
             backgroundSize: "80px 80px",
           }}
         />
 
-        <div className="relative mx-auto grid min-h-[720px] max-w-[1440px] items-center gap-16 px-6 py-24 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:py-28">
+        {/* Decorative circles */}
 
-          {/* HERO LEFT */}
+        <div className="pointer-events-none absolute -right-[330px] -top-[330px] h-[800px] w-[800px] rounded-full border border-white/[0.10]" />
 
-          <div>
+        <div className="pointer-events-none absolute -right-[210px] -top-[210px] h-[540px] w-[540px] rounded-full border border-[#c6a568]/20" />
+
+        <div className="pointer-events-none absolute -bottom-[300px] -left-[200px] h-[600px] w-[600px] rounded-full border border-white/[0.06]" />
+
+        {/* CONTENT */}
+
+        <div className="relative mx-auto grid min-h-[760px] max-w-[1440px] items-center gap-16 px-6 py-24 lg:grid-cols-[1.15fr_0.85fr] lg:px-10 lg:py-28">
+
+          {/* =====================================================
+              HERO LEFT
+          ===================================================== */}
+
+          <div className="relative z-10">
 
             <div className="mb-8 flex items-center gap-4">
 
-              <span className="h-px w-14 bg-[#b99252]" />
+              <span className="h-px w-14 bg-[#c6a568]" />
 
-              <span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[#c6a568]">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.35em] text-[#d7ba7d]">
                 About Briano and Family
               </span>
 
             </div>
 
-            <h1 className="max-w-5xl text-[50px] font-semibold leading-[0.96] tracking-[-0.055em] sm:text-6xl md:text-7xl lg:text-[82px] xl:text-[92px]">
+            <h1 className="max-w-5xl text-[50px] font-semibold leading-[0.96] tracking-[-0.055em] drop-shadow-[0_5px_25px_rgba(0,0,0,0.25)] sm:text-6xl md:text-7xl lg:text-[82px] xl:text-[92px]">
+
               We bring
+
               <br />
 
-              <span className="text-[#c6a568]">
+              <span className="text-[#d5b36e]">
                 perspective
               </span>
 
               <br />
 
               to opportunity.
+
             </h1>
 
-            <p className="mt-9 max-w-2xl text-[16px] leading-8 text-white/50 sm:text-[17px]">
+            <p className="mt-9 max-w-2xl text-[16px] leading-8 text-white/75 drop-shadow-[0_3px_12px_rgba(0,0,0,0.35)] sm:text-[17px]">
               Briano and Family is a professional business advisory and
               consulting firm helping organisations understand opportunities,
               navigate complexity and make commercially informed decisions.
@@ -153,7 +179,7 @@ export default function AboutPage() {
 
               <Link
                 href="/services"
-                className="rounded-full bg-[#a77d36] px-7 py-4 text-sm font-semibold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#bd9452]"
+                className="rounded-full bg-[#a77d36] px-7 py-4 text-sm font-semibold text-white shadow-[0_12px_35px_rgba(0,0,0,0.25)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#bd9452]"
               >
                 Explore our expertise
                 <span className="ml-3">↗</span>
@@ -161,7 +187,7 @@ export default function AboutPage() {
 
               <Link
                 href="/contact"
-                className="rounded-full border border-white/15 px-7 py-4 text-sm font-semibold text-white transition duration-300 hover:border-white/40"
+                className="rounded-full border border-white/30 bg-black/10 px-7 py-4 text-sm font-semibold text-white backdrop-blur-sm transition duration-300 hover:border-white/60 hover:bg-white/10"
               >
                 Start a conversation
               </Link>
@@ -170,16 +196,22 @@ export default function AboutPage() {
 
           </div>
 
-          {/* HERO RIGHT */}
+          {/* =====================================================
+              HERO RIGHT CARD
+          ===================================================== */}
 
-          <div className="relative hidden lg:block">
+          <div className="relative z-10 hidden lg:block">
 
-            <div className="relative mx-auto aspect-[0.82] max-w-[420px] overflow-hidden rounded-[2.25rem] border border-white/10 bg-[#16232f] shadow-[0_40px_100px_rgba(0,0,0,0.35)]">
+            <div className="relative mx-auto aspect-[0.82] max-w-[420px] overflow-hidden rounded-[2.25rem] border border-white/15 bg-[#16232f]/70 shadow-[0_40px_100px_rgba(0,0,0,0.4)] backdrop-blur-[2px]">
 
-              <div className="absolute inset-0 bg-gradient-to-br from-[#263a4b] via-[#172631] to-[#080e14]" />
+              {/* Card background */}
+
+              <div className="absolute inset-0 bg-gradient-to-br from-[#263a4b]/80 via-[#172631]/70 to-[#080e14]/85" />
+
+              {/* Card grid */}
 
               <div
-                className="absolute inset-0 opacity-20"
+                className="absolute inset-0 opacity-15"
                 style={{
                   backgroundImage:
                     "linear-gradient(rgba(255,255,255,.12) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.12) 1px, transparent 1px)",
@@ -187,17 +219,17 @@ export default function AboutPage() {
                 }}
               />
 
-              <div className="absolute -right-24 top-16 h-[370px] w-[370px] rounded-full border border-[#c6a568]/20" />
+              <div className="absolute -right-24 top-16 h-[370px] w-[370px] rounded-full border border-[#c6a568]/25" />
 
-              <div className="absolute -right-5 top-36 h-[250px] w-[250px] rounded-full border border-white/10" />
+              <div className="absolute -right-5 top-36 h-[250px] w-[250px] rounded-full border border-white/15" />
 
-              <div className="absolute bottom-0 left-0 h-1/2 w-full bg-gradient-to-t from-[#080e14] to-transparent" />
+              <div className="absolute bottom-0 left-0 h-1/2 w-full bg-gradient-to-t from-[#080e14]/95 to-transparent" />
 
               {/* Center symbol */}
 
-              <div className="absolute left-10 top-10 flex h-20 w-20 items-center justify-center rounded-full border border-[#c6a568]/30">
+              <div className="absolute left-10 top-10 flex h-20 w-20 items-center justify-center rounded-full border border-[#c6a568]/40 bg-black/10 backdrop-blur-sm">
 
-                <div className="h-3 w-3 rounded-full bg-[#c6a568] shadow-[0_0_35px_rgba(198,165,104,.65)]" />
+                <div className="h-3 w-3 rounded-full bg-[#c6a568] shadow-[0_0_35px_rgba(198,165,104,.75)]" />
 
               </div>
 
@@ -215,9 +247,9 @@ export default function AboutPage() {
                   perspective.
                 </h2>
 
-                <div className="my-7 h-px bg-white/10" />
+                <div className="my-7 h-px bg-white/15" />
 
-                <p className="text-sm leading-6 text-white/40">
+                <p className="text-sm leading-6 text-white/55">
                   Business advisory built around opportunity, commercial
                   insight and practical action.
                 </p>
@@ -228,9 +260,9 @@ export default function AboutPage() {
 
             {/* Floating location card */}
 
-            <div className="absolute -bottom-6 -left-8 rounded-2xl border border-white/10 bg-[#15232e] px-6 py-5 shadow-2xl">
+            <div className="absolute -bottom-6 -left-8 rounded-2xl border border-white/15 bg-[#15232e]/90 px-6 py-5 shadow-2xl backdrop-blur-md">
 
-              <p className="text-[9px] uppercase tracking-[0.25em] text-white/30">
+              <p className="text-[9px] uppercase tracking-[0.25em] text-white/40">
                 Based in
               </p>
 
@@ -332,8 +364,6 @@ export default function AboutPage() {
 
             <div className="relative border-l border-black/10 pl-8 sm:pl-12">
 
-              {/* 2019 */}
-
               <div className="relative pb-14">
 
                 <span className="absolute -left-[41px] top-1 h-3 w-3 rounded-full border-[3px] border-[#f5f3ee] bg-[#a77d36] sm:-left-[57px]" />
@@ -353,8 +383,6 @@ export default function AboutPage() {
 
               </div>
 
-              {/* Growth */}
-
               <div className="relative pb-14">
 
                 <span className="absolute -left-[41px] top-1 h-3 w-3 rounded-full border-[3px] border-[#f5f3ee] bg-[#a77d36] sm:-left-[57px]" />
@@ -373,8 +401,6 @@ export default function AboutPage() {
                 </p>
 
               </div>
-
-              {/* Today */}
 
               <div className="relative">
 
