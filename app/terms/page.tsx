@@ -1,430 +1,62 @@
-import Link from "next/link";
+import Footer from "../components/Footer";
 
-export default function TermsAndConditions() {
+const sections = [
+  ["1. Acceptance", "By accessing or using the Brianno & Family website, you agree to use the website responsibly and in accordance with these Terms and Conditions."],
+  ["2. Website Information", "The information presented on this website is provided for general informational purposes. While we aim to maintain accurate and useful information, we do not guarantee that every item is complete, current or free from error."],
+  ["3. Professional Services", "Information on this website does not by itself constitute a professional engagement, financial advice, legal advice or a contractual commitment to provide services. Specific services are subject to separate discussions and agreements."],
+  ["4. Intellectual Property", "Unless otherwise stated, website content, branding, text, graphics, layouts and other materials are owned by or used with permission by Brianno & Family and may not be reproduced or commercially exploited without appropriate permission."],
+  ["5. Third-Party Links", "The website may contain links to third-party websites. These links are provided for convenience and Brianno & Family does not control or accept responsibility for third-party content, availability or policies."],
+  ["6. Website Availability", "We may modify, suspend or discontinue parts of the website from time to time. We do not guarantee uninterrupted availability of the website or that it will always be free from technical issues."],
+  ["7. Limitation of Liability", "To the extent permitted by applicable law, Brianno & Family will not be liable for losses arising solely from reliance on general information published on this website."],
+  ["8. Privacy", "Use of personal information submitted through this website is governed by our Privacy Policy."],
+  ["9. Changes", "We may update these Terms and Conditions from time to time. Continued use of the website following publication of changes constitutes acceptance of the updated terms."],
+  ["10. Contact", "Questions regarding these Terms and Conditions may be directed to Brianno & Family using the contact information provided on this website."],
+];
+
+export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-[#f5f3ee] text-[#111b27]">
-
-      {/* TOP BAR */}
-      <div className="bg-[#0d1721] px-6 py-2.5 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-white/60 sm:text-xs">
-        Strategic Advisory • Business Development • International Trade
-      </div>
-
-      {/* NAVIGATION */}
-      <header className="border-b border-black/[0.06] bg-[#f5f3ee]/95 backdrop-blur-xl">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-
-          <div className="flex h-20 items-center justify-between">
-
-            <Link href="/" className="shrink-0">
-
-              <div className="text-[20px] font-bold tracking-[0.16em] text-[#111b27]">
-                BRIANO
-              </div>
-
-              <div className="-mt-0.5 pl-[1px] text-[8px] font-semibold tracking-[0.5em] text-[#a77d36]">
-                AND FAMILY
-              </div>
-
-            </Link>
-
-            <nav className="hidden items-center gap-7 lg:flex xl:gap-9">
-
-              <Link
-                href="/"
-                className="text-[13px] font-medium text-[#56616b] hover:text-[#111b27]"
-              >
-                Home
-              </Link>
-
-              <Link
-                href="/about"
-                className="text-[13px] font-medium text-[#56616b] hover:text-[#111b27]"
-              >
-                About Us
-              </Link>
-
-              <Link
-                href="/services"
-                className="text-[13px] font-medium text-[#56616b] hover:text-[#111b27]"
-              >
-                Services
-              </Link>
-
-              <Link
-                href="/industries"
-                className="text-[13px] font-medium text-[#56616b] hover:text-[#111b27]"
-              >
-                Industries
-              </Link>
-
-              <Link
-                href="/insights"
-                className="text-[13px] font-medium text-[#56616b] hover:text-[#111b27]"
-              >
-                Insights
-              </Link>
-
-              <Link
-                href="/contact"
-                className="text-[13px] font-medium text-[#56616b] hover:text-[#111b27]"
-              >
-                Contact
-              </Link>
-
-            </nav>
-
-            <Link
-              href="/contact"
-              className="rounded-full bg-[#a77d36] px-6 py-3 text-[13px] font-semibold text-white transition hover:bg-[#896529]"
-            >
-              Talk to an Advisor
-            </Link>
-
+    <main>
+      <section className="bg-[#111111] px-6 pb-20 pt-[170px] text-white lg:px-10 lg:pb-28">
+        <div className="bf-container">
+          <div className="site-eyebrow text-white">
+            Legal
           </div>
 
-        </div>
-      </header>
-
-      {/* PAGE HEADER */}
-      <section className="bg-[#0d1721] px-6 py-20 text-white lg:px-8 lg:py-28">
-
-        <div className="mx-auto max-w-5xl">
-
-          <p className="text-[10px] font-bold uppercase tracking-[0.32em] text-[#c6a568]">
-            Legal
-          </p>
-
-          <h1 className="mt-5 text-5xl font-semibold tracking-[-0.04em] sm:text-6xl lg:text-7xl">
-            Terms &amp; Conditions
+          <h1 className="mt-7 text-5xl font-bold tracking-[-.055em] sm:text-6xl lg:text-8xl">
+            Terms &
+            <span className="text-[#d71920]"> Conditions.</span>
           </h1>
 
-          <p className="mt-6 max-w-2xl text-sm leading-7 text-white/45">
-            Terms governing your use of the Briano and Family website and
-            general information relating to our professional services.
+          <p className="mt-7 max-w-2xl text-sm leading-7 text-white/50">
+            The terms governing access to and use of the Brianno & Family
+            website.
           </p>
 
-          <p className="mt-6 text-xs uppercase tracking-[0.18em] text-white/30">
+          <p className="mt-6 text-[9px] uppercase tracking-[.2em] text-white/30">
             Last updated: August 2026
           </p>
-
         </div>
-
       </section>
 
-      {/* CONTENT */}
-      <section className="bg-white px-6 py-20 lg:px-8 lg:py-28">
+      <section className="bf-section bg-white">
+        <div className="mx-auto max-w-4xl px-6 lg:px-0">
+          <div className="space-y-12">
+            {sections.map(([title, text]) => (
+              <section key={title} className="border-t border-black/10 pt-8">
+                <h2 className="text-2xl font-bold tracking-[-.03em]">
+                  {title}
+                </h2>
 
-        <div className="mx-auto max-w-4xl">
-
-          <div className="space-y-14">
-
-            {/* ACCEPTANCE */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                1. Acceptance of These Terms
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                These Terms &amp; Conditions govern your access to and use of
-                the Briano and Family website. By accessing or using the
-                website, you agree to be bound by these terms.
-              </p>
-
-              <p className="mt-4 text-[15px] leading-8 text-[#626d76]">
-                If you do not agree with these terms, please discontinue use
-                of the website.
-              </p>
-
-            </section>
-
-            {/* ABOUT */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                2. About Briano and Family
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                Briano and Family is a professional business advisory and
-                consulting firm providing services including business
-                development consulting, tender advisory, international trade
-                consulting and financial consulting.
-              </p>
-
-            </section>
-
-            {/* WEBSITE INFORMATION */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                3. Website Information
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                The information provided on this website is intended for
-                general informational purposes only. While we seek to provide
-                accurate and useful information, we do not guarantee that all
-                information is complete, current or error-free.
-              </p>
-
-              <p className="mt-4 text-[15px] leading-8 text-[#626d76]">
-                Website content should not be treated as a substitute for
-                professional advice tailored to your specific circumstances.
-              </p>
-
-            </section>
-
-            {/* PROFESSIONAL ADVICE */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                4. Professional Services
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                Information presented on this website does not by itself
-                establish a client, advisory, consulting or other professional
-                relationship between you and Briano and Family.
-              </p>
-
-              <p className="mt-4 text-[15px] leading-8 text-[#626d76]">
-                Any professional engagement will be governed by the specific
-                terms, scope, deliverables, fees and conditions agreed between
-                Briano and Family and the relevant client.
-              </p>
-
-            </section>
-
-            {/* NO GUARANTEE */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                5. No Guarantee of Outcomes
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                Business, commercial, tender, investment and international
-                trade activities involve risks and uncertainties. Briano and
-                Family does not guarantee that any particular commercial,
-                financial, tender or business outcome will be achieved.
-              </p>
-
-              <p className="mt-4 text-[15px] leading-8 text-[#626d76]">
-                Recommendations and advisory services are provided based on
-                the information, circumstances and objectives available at
-                the time of the engagement.
-              </p>
-
-            </section>
-
-            {/* INTELLECTUAL PROPERTY */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                6. Intellectual Property
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                Unless otherwise stated, the content of this website,
-                including text, branding, graphics, design, layout and other
-                materials, is owned by or licensed to Briano and Family and
-                is protected by applicable intellectual property laws.
-              </p>
-
-              <p className="mt-4 text-[15px] leading-8 text-[#626d76]">
-                You may view and use the website for legitimate personal or
-                business information purposes. You may not reproduce,
-                distribute, modify or commercially exploit website content
-                without appropriate permission.
-              </p>
-
-            </section>
-
-            {/* PROHIBITED USE */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                7. Prohibited Use
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                You must not use this website:
-              </p>
-
-              <ul className="mt-5 space-y-3 text-[15px] leading-7 text-[#626d76]">
-                <li>• For unlawful or fraudulent purposes</li>
-                <li>• To interfere with the operation or security of the website</li>
-                <li>• To attempt unauthorised access to systems or information</li>
-                <li>• To reproduce website content without permission</li>
-                <li>• In a manner that could damage Briano and Family or third parties</li>
-              </ul>
-
-            </section>
-
-            {/* THIRD PARTY */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                8. Third-Party Links
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                The website may contain links to third-party websites,
-                resources or services. Such links are provided for
-                convenience and do not necessarily constitute an endorsement
-                or recommendation.
-              </p>
-
-              <p className="mt-4 text-[15px] leading-8 text-[#626d76]">
-                Briano and Family is not responsible for the availability,
-                content, security or practices of third-party websites.
-              </p>
-
-            </section>
-
-            {/* LIABILITY */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                9. Limitation of Liability
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                To the extent permitted by applicable law, Briano and Family
-                shall not be liable for losses or damages arising from reliance
-                solely on general information contained on this website or
-                from the use or inability to use the website.
-              </p>
-
-              <p className="mt-4 text-[15px] leading-8 text-[#626d76]">
-                Nothing in these terms excludes or limits liability that cannot
-                lawfully be excluded or limited under applicable law.
-              </p>
-
-            </section>
-
-            {/* AVAILABILITY */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                10. Website Availability
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                We aim to maintain reliable website availability but do not
-                guarantee that the website will always be available,
-                uninterrupted or free from technical errors.
-              </p>
-
-            </section>
-
-            {/* CHANGES */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                11. Changes to These Terms
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                Briano and Family may update these Terms &amp; Conditions from
-                time to time. Changes will become effective when published on
-                this page unless otherwise stated.
-              </p>
-
-            </section>
-
-            {/* GOVERNING LAW */}
-            <section>
-
-              <h2 className="text-2xl font-semibold">
-                12. Governing Law
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                These Terms &amp; Conditions shall be interpreted in accordance
-                with the laws applicable in Kenya, subject to any mandatory
-                legal requirements that may apply.
-              </p>
-
-            </section>
-
-            {/* CONTACT */}
-            <section className="rounded-2xl bg-[#f5f3ee] p-8 sm:p-10">
-
-              <h2 className="text-2xl font-semibold">
-                13. Contact Us
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#626d76]">
-                If you have questions regarding these Terms &amp; Conditions,
-                please contact Briano and Family.
-              </p>
-
-              <div className="mt-7 space-y-2 text-sm text-[#111b27]">
-
-                <p>
-                  <strong>Briano and Family</strong>
+                <p className="mt-5 text-[15px] leading-8 text-[#6b6b6b]">
+                  {text}
                 </p>
-
-                <p>
-                  316 Ndovu Close, Karen, Nairobi, Kenya
-                </p>
-
-                <p>
-                  <a
-                    href="mailto:info@brianofamily.com"
-                    className="font-medium text-[#a77d36] hover:underline"
-                  >
-                    info@brianofamily.com
-                  </a>
-                </p>
-
-                <p>
-                  +254 742 840 154
-                </p>
-
-              </div>
-
-            </section>
-
+              </section>
+            ))}
           </div>
-
         </div>
-
       </section>
 
-      {/* FOOTER */}
-      <footer className="bg-[#080f16] px-6 py-12 text-white lg:px-8">
-
-        <div className="mx-auto flex max-w-7xl flex-col justify-between gap-6 text-xs sm:flex-row sm:items-center">
-
-          <p className="text-white/35">
-            © 2026 Briano and Family. All rights reserved.
-          </p>
-
-          <div className="flex gap-6">
-
-            <Link
-              href="/privacy"
-              className="text-white/60 hover:text-white"
-            >
-              Privacy Policy
-            </Link>
-
-            <Link
-              href="/terms"
-              className="text-white/60 hover:text-white"
-            >
-              Terms &amp; Conditions
-            </Link>
-
-          </div>
-
-        </div>
-
-      </footer>
-
+      <Footer />
     </main>
   );
 }
