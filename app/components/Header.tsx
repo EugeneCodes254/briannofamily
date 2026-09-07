@@ -25,16 +25,11 @@ export default function Header() {
           <Image
             src="/b.png"
             alt="Brianno & Family"
-            width={42}
-            height={42}
+            width={150}
+            height={126}
             className="bf-logo-mark"
             priority
           />
-
-          <span className="bf-logo-wordmark">
-            <span className="bf-logo-main">BRIANNO</span>
-            <span className="bf-logo-sub">& FAMILY</span>
-          </span>
         </Link>
 
         <nav className="bf-nav" aria-label="Main navigation">

@@ -13,10 +13,6 @@ export default function Footer() {
               width={38}
               height={38}
             />
-
-            <span className="bf-footer-brand-name">
-              BRIANNO & FAMILY
-            </span>
           </div>
 
           <p>

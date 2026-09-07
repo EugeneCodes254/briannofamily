@@ -502,13 +502,8 @@ export default function Home() {
               <Image
                 src="/b.png"
                 alt="Brianno & Family"
-                width={38}
-                height={38}
+                width={90} height={75}
               />
-
-              <span className="bf-footer-brand-name">
-                BRIANNO & FAMILY
-              </span>
             </div>
 
             <p>
