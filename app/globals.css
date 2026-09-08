@@ -5115,3 +5115,55 @@ button {
       ) !important;
   }
 }
+
+/* =========================================================
+   MOBILE MENU VISIBILITY FIX
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .bf-mobile-menu {
+    background: #ffffff !important;
+    color: #111111 !important;
+    border-top: 1px solid rgba(0, 0, 0, 0.10) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10) !important;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12) !important;
+  }
+
+  .bf-mobile-menu .bf-mobile-link {
+    display: block !important;
+    color: #111111 !important;
+    background: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  .bf-mobile-menu .bf-mobile-link:hover,
+  .bf-mobile-menu .bf-mobile-link:focus,
+  .bf-mobile-menu .bf-mobile-link.active {
+    color: #b51f2b !important;
+    background: #ffffff !important;
+  }
+
+  .bf-mobile-menu .bf-btn {
+    color: #ffffff !important;
+  }
+
+  .bf-mobile-menu.closed {
+    visibility: hidden !important;
+  }
+
+  .bf-mobile-menu:not(.closed) {
+    visibility: visible !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .bf-mobile-menu {
+    background: #ffffff !important;
+  }
+
+  .bf-mobile-menu .bf-mobile-link {
+    color: #111111 !important;
+  }
+}
+
