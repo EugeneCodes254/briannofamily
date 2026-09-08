@@ -595,7 +595,6 @@ export default function Home() {
               <Link
                 href="/contact"
                 className="bf-btn bf-btn-dark"
-                style={{ marginTop: "34px" }}
               >
                 Contact Brianno & Family <span className="bf-arrow-right" aria-hidden="true" />
               </Link>
