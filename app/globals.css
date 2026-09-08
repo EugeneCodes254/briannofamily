@@ -4818,3 +4818,119 @@ button {
     height: 270px !important;
   }
 }
+
+/* ================================
+   PROFESSIONAL CSS ARROWS
+================================ */
+
+.bf-arrow-icon,
+.bf-arrow-right {
+  position: relative;
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+}
+
+.bf-arrow-icon::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  top: 2px;
+  right: 2px;
+}
+
+.bf-arrow-icon::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 1.5px;
+  background: currentColor;
+  transform: rotate(-45deg);
+  transform-origin: right center;
+  top: 9px;
+  right: 2px;
+}
+
+.bf-arrow-right::before {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 1.5px;
+  background: currentColor;
+  left: 1px;
+  top: 8px;
+}
+
+.bf-arrow-right::after {
+  content: "";
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  transform: rotate(45deg);
+  right: 1px;
+  top: 5px;
+}
+
+.bf-service-detail-link .bf-arrow-icon {
+  margin-left: 5px;
+  transition: transform 180ms ease;
+}
+
+.bf-service-detail-link:hover .bf-arrow-icon {
+  transform: translate(3px, -3px);
+}
+
+.bf-btn .bf-arrow-right {
+  margin-left: 2px;
+  transition: transform 180ms ease;
+}
+
+.bf-btn:hover .bf-arrow-right {
+  transform: translateX(3px);
+}
+
+@media (max-width: 640px) {
+  .bf-arrow-icon,
+  .bf-arrow-right {
+    width: 17px;
+    height: 17px;
+  }
+}
+
+
+/* Diagonal service arrow */
+.bf-css-diagonal-arrow {
+  position: relative;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+
+.bf-css-diagonal-arrow::before {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-top: 1.5px solid currentColor;
+  border-right: 1.5px solid currentColor;
+  top: 2px;
+  right: 2px;
+}
+
+.bf-css-diagonal-arrow::after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 1.5px;
+  background: currentColor;
+  transform: rotate(-45deg);
+  transform-origin: right center;
+  top: 10px;
+  right: 2px;
+}

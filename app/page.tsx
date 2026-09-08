@@ -149,14 +149,14 @@ export default function Home() {
 
             <div className="bf-hero-actions">
               <Link href="/contact" className="bf-btn bf-btn-primary">
-                Talk to an Advisor →
+                Talk to an Advisor <span className="bf-arrow-right" aria-hidden="true" />
               </Link>
 
               <Link
                 href="/services"
                 className="bf-btn bf-btn-outline-light"
               >
-                Explore Our Expertise →
+                Explore Our Expertise <span className="bf-arrow-right" aria-hidden="true" />
               </Link>
             </div>
 
@@ -310,7 +310,7 @@ export default function Home() {
                   />
                 </div>
 
-                <div className="bf-service-arrow">↗</div>
+                <div className="bf-service-arrow bf-css-diagonal-arrow" aria-hidden="true" />
               </Link>
             ))}
           </div>
@@ -562,7 +562,7 @@ export default function Home() {
                 </h3>
 
                 <span className="bf-insight-link">
-                  Read Insight →
+                  Read Insight <span className="bf-arrow-right" aria-hidden="true" />
                 </span>
               </Link>
             ))}
@@ -597,7 +597,7 @@ export default function Home() {
                 className="bf-btn bf-btn-dark"
                 style={{ marginTop: "34px" }}
               >
-                Contact Brianno & Family →
+                Contact Brianno & Family <span className="bf-arrow-right" aria-hidden="true" />
               </Link>
             </div>
 

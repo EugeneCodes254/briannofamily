@@ -185,7 +185,7 @@ export default function AboutPage() {
 
                 <p>{value.text}</p>
 
-                <div className="bf-about-value-arrow">↗</div>
+                <div className="bf-about-value-arrow bf-css-diagonal-arrow" aria-hidden="true" />
               </article>
             ))}
           </div>
@@ -251,7 +251,7 @@ export default function AboutPage() {
                 </div>
 
                 {index < approach.length - 1 && (
-                  <div className="bf-about-approach-arrow">→</div>
+                  <div className="bf-about-approach-arrow bf-arrow-right" aria-hidden="true" />
                 )}
               </article>
             ))}
@@ -259,11 +259,11 @@ export default function AboutPage() {
 
           <div className="bf-about-approach-cta">
             <Link href="/services" className="bf-btn bf-btn-outline">
-              Explore Our Expertise →
+              Explore Our Expertise <span className="bf-arrow-right" aria-hidden="true" />
             </Link>
 
             <Link href="/contact" className="bf-btn bf-btn-dark">
-              Start a Conversation →
+              Start a Conversation <span className="bf-arrow-right" aria-hidden="true" />
             </Link>
           </div>
         </div>
@@ -291,7 +291,7 @@ export default function AboutPage() {
               </p>
 
               <Link href="/contact" className="bf-btn bf-btn-dark">
-                Contact Our Team →
+                Contact Our Team <span className="bf-arrow-right" aria-hidden="true" />
               </Link>
             </div>
           </div>

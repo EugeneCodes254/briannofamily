@@ -119,7 +119,7 @@ export default function InsightsPage() {
               </p>
 
               <Link href="/contact" className="bf-btn bf-btn-dark">
-                Discuss Your Challenge →
+                Discuss Your Challenge <span className="bf-arrow-right" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -168,7 +168,7 @@ export default function InsightsPage() {
                   href="/contact"
                   className="bf-insight-link"
                 >
-                  Discuss This Topic <span>→</span>
+                  Discuss This Topic <span className="bf-arrow-right" aria-hidden="true" />
                 </Link>
               </article>
             ))}
@@ -238,7 +238,7 @@ export default function InsightsPage() {
               </p>
 
               <Link href="/contact" className="bf-btn bf-btn-primary">
-                Speak With Us →
+                Speak With Us <span className="bf-arrow-right" aria-hidden="true" />
               </Link>
             </div>
           </div>

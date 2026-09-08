@@ -56,7 +56,7 @@ export default function Header() {
           className="bf-btn bf-btn-dark bf-header-cta"
         >
           Start a Conversation
-          <span>→</span>
+          <span className="bf-arrow-right" aria-hidden="true" />
         </Link>
 
         <button
@@ -88,7 +88,7 @@ export default function Header() {
           style={{ marginTop: "18px" }}
           onClick={() => setOpen(false)}
         >
-          Start a Conversation →
+          Start a Conversation <span className="bf-arrow-right" aria-hidden="true" />
         </Link>
       </div>
     </header>

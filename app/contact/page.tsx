@@ -82,7 +82,7 @@ export default function ContactPage() {
                 >
                   <span>{item.label}</span>
                   <strong>{item.value}</strong>
-                  <b>→</b>
+                  <b className="bf-arrow-right" aria-hidden="true" />
                 </a>
               ))}
 
@@ -153,7 +153,7 @@ export default function ContactPage() {
                   href="mailto:info@brianofamily.com"
                   className="bf-btn bf-btn-primary"
                 >
-                  Email Brianno & Family →
+                  Email Brianno & Family <span className="bf-arrow-right" aria-hidden="true" />
                 </a>
 
                 <a

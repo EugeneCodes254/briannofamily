@@ -205,7 +205,7 @@ export default function IndustriesPage() {
 
                   <Link href="/contact" className="bf-industry-link">
                     Discuss your opportunity
-                    <span>→</span>
+                    <span className="bf-arrow-right" aria-hidden="true" />
                   </Link>
                 </div>
               </article>
@@ -239,7 +239,7 @@ export default function IndustriesPage() {
 
               <Link href="/services" className="bf-btn bf-btn-outline-light">
                 Explore our expertise
-                <span>→</span>
+                <span className="bf-arrow-right" aria-hidden="true" />
               </Link>
             </div>
           </div>
@@ -262,7 +262,7 @@ export default function IndustriesPage() {
 
             <Link href="/contact" className="bf-btn bf-btn-primary">
               Talk to an Advisor
-              <span>→</span>
+              <span className="bf-arrow-right" aria-hidden="true" />
             </Link>
           </div>
         </section>

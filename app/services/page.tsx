@@ -200,7 +200,7 @@ export default function ServicesPage() {
                       href="/contact"
                       className="bf-service-detail-link"
                     >
-                      Discuss this capability <span>↗</span>
+                      Discuss this capability <span className="bf-arrow-icon" aria-hidden="true" />
                     </Link>
                   </div>
                 </div>
@@ -257,7 +257,7 @@ export default function ServicesPage() {
 
             <div>
               <Link href="/contact" className="bf-btn bf-btn-dark">
-                Contact Us →
+                Contact Us <span className="bf-arrow-right" aria-hidden="true" />
               </Link>
             </div>
           </div>
