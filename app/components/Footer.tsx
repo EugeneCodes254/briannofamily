@@ -10,8 +10,8 @@ export default function Footer() {
             <Image
               src="/b.png"
               alt="Brianno & Family"
-              width={38}
-              height={38}
+              width={180}
+              height={90}
             />
           </div>
 
