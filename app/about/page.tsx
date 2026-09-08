@@ -1,46 +1,116 @@
+import Image from "next/image";
 import Link from "next/link";
-import PageHero from "../components/PageHero";
 import Footer from "../components/Footer";
 
 const values = [
-  ["01", "Integrity", "We approach every engagement with honesty, accountability and a clear understanding of our clients' interests."],
-  ["02", "Strategic Thinking", "We look beyond immediate challenges to understand the wider commercial environment and identify meaningful opportunities."],
-  ["03", "Practicality", "Our recommendations are designed to be useful, understandable and capable of being translated into action."],
-  ["04", "Professionalism", "Every engagement is approached with discipline, discretion and respect for the objectives of our clients."],
+  {
+    number: "01",
+    title: "Integrity",
+    text: "We approach every engagement with honesty, accountability and a clear understanding of our clients' interests.",
+  },
+  {
+    number: "02",
+    title: "Strategic Thinking",
+    text: "We look beyond immediate challenges to understand the wider commercial environment and identify meaningful opportunities.",
+  },
+  {
+    number: "03",
+    title: "Practicality",
+    text: "Our recommendations are designed to be useful, understandable and capable of being translated into action.",
+  },
+  {
+    number: "04",
+    title: "Professionalism",
+    text: "Every engagement is approached with discipline, discretion and respect for the objectives of our clients.",
+  },
 ];
 
 const approach = [
-  ["01", "Understand", "We understand your objectives, circumstances, market environment and the opportunity or challenge you are addressing."],
-  ["02", "Strategise", "We assess available options and develop a structured approach aligned with your objectives and commercial priorities."],
-  ["03", "Execute", "We help turn strategy into practical next steps, giving clients a clearer direction for moving forward."],
+  {
+    number: "01",
+    title: "Understand",
+    text: "We understand your objectives, circumstances, market environment and the opportunity or challenge you are addressing.",
+  },
+  {
+    number: "02",
+    title: "Strategise",
+    text: "We assess available options and develop a structured approach aligned with your objectives and commercial priorities.",
+  },
+  {
+    number: "03",
+    title: "Execute",
+    text: "We help turn strategy into practical next steps, giving clients a clearer direction for moving forward.",
+  },
 ];
 
 export default function AboutPage() {
   return (
     <main>
-      <PageHero
-        eyebrow="About Brianno & Family"
-        title="We bring perspective"
-        highlight="to opportunity."
-        description="Brianno & Family is a professional business advisory and consulting firm helping organisations understand opportunities, navigate complexity and make commercially informed decisions."
-        image="/about page.png"
-      />
+      {/* HERO */}
+      <section className="bf-about-hero">
+        <div className="bf-about-hero-image">
+          <Image
+            src="/images/hero-african-executives.jpg"
+            alt="African business professionals discussing strategy in a professional meeting"
+            fill
+            priority
+            sizes="100vw"
+          />
+        </div>
 
+        <div className="bf-about-hero-overlay" />
+
+        <div className="bf-container bf-about-hero-content">
+          <div className="site-eyebrow bf-about-eyebrow">
+            About Brianno & Family · Nairobi
+          </div>
+
+          <h1 className="display-heading bf-about-title">
+            Perspective that
+            <span> creates opportunity.</span>
+          </h1>
+
+          <p className="bf-about-hero-description">
+            Brianno & Family is a professional business advisory and
+            consulting firm helping organisations understand opportunities,
+            navigate complexity and make commercially informed decisions.
+          </p>
+        </div>
+
+        <div className="bf-about-hero-meta">
+          <span>Established</span>
+          <strong>2019</strong>
+        </div>
+      </section>
+
+      {/* STORY */}
       <section className="bf-section bg-white">
         <div className="bf-container">
-          <div className="bf-intro-grid">
-            <div>
-              <div className="site-eyebrow">
-                Our Story
+          <div className="bf-about-story-grid">
+            <div className="bf-about-story-image">
+              <Image
+                src="/images/strategy-meeting.jpg"
+                alt="Business professionals discussing strategy"
+                fill
+                sizes="(max-width: 900px) 100vw, 44vw"
+              />
+
+              <div className="bf-about-image-caption">
+                <span>Nairobi · Kenya</span>
+                <span>Strategy in practice</span>
               </div>
             </div>
 
-            <div>
+            <div className="bf-about-story-content">
+              <div className="site-eyebrow">Our Story</div>
+
+              <div className="bf-about-red-line" />
+
               <h2 className="section-heading">
                 Better decisions begin with better perspective.
               </h2>
 
-              <div className="bf-intro-copy">
+              <div className="bf-about-copy">
                 <p>
                   Brianno & Family was established in 2019 with a vision of
                   providing practical and commercially focused advisory
@@ -53,25 +123,47 @@ export default function AboutPage() {
                   focused expertise across important areas of commercial
                   decision-making.
                 </p>
+              </div>
 
-                <div className="bf-intro-highlight">
-                  We combine strategic thinking with practical commercial
-                  understanding to help organisations move forward with
-                  confidence.
-                </div>
+              <div className="bf-about-highlight">
+                <span>2019</span>
+                <p>
+                  Established with a focus on practical, commercially
+                  informed advisory support.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bf-section bg-[#f1efeb]">
+      {/* POSITIONING */}
+      <section className="bf-about-positioning">
+        <div className="bf-container">
+          <div className="bf-about-positioning-grid">
+            <div>
+              <div className="site-eyebrow">Our Perspective</div>
+            </div>
+
+            <div>
+              <h2>
+                We combine strategic thinking with practical commercial
+                understanding to help organisations move forward with
+                confidence.
+              </h2>
+
+              <div className="bf-about-positioning-rule" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* VALUES */}
+      <section className="bf-section bf-about-values">
         <div className="bf-container">
           <div className="bf-section-header">
             <div>
-              <div className="site-eyebrow">
-                Our Values
-              </div>
+              <div className="site-eyebrow">Our Values</div>
             </div>
 
             <div>
@@ -81,40 +173,42 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="bf-reasons">
-            {values.map(([number, title, text]) => (
-              <div className="bf-reason" key={number}>
-                <div className="bf-reason-number">{number}</div>
+          <div className="bf-about-values-grid">
+            {values.map((value) => (
+              <article className="bf-about-value" key={value.number}>
+                <div className="bf-about-value-top">
+                  <span>{value.number}</span>
+                  <span>Brianno & Family</span>
+                </div>
 
-                <h3 className="bf-reason-title">
-                  {title}
-                </h3>
+                <h3>{value.title}</h3>
 
-                <p className="bf-reason-text">
-                  {text}
-                </p>
-              </div>
+                <p>{value.text}</p>
+
+                <div className="bf-about-value-arrow">↗</div>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bf-section bf-statement">
+      {/* PHILOSOPHY */}
+      <section className="bf-about-philosophy">
         <div className="bf-container">
-          <div className="bf-statement-grid">
+          <div className="bf-about-philosophy-grid">
             <div>
-              <div className="site-eyebrow" style={{ color: "#fff" }}>
+              <div className="site-eyebrow bf-white-eyebrow">
                 Our Philosophy
               </div>
             </div>
 
-            <div className="bf-statement-copy">
-              <h2 className="section-heading bf-statement-title">
+            <div>
+              <h2>
                 Advisory should create
                 <span> clarity and momentum.</span>
               </h2>
 
-              <p style={{ marginTop: "38px" }}>
+              <p>
                 We believe professional advisory should not stop at analysis.
                 It should help decision-makers understand what matters,
                 determine what comes next and move with greater confidence.
@@ -124,13 +218,12 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* APPROACH */}
       <section className="bf-section bg-white">
         <div className="bf-container">
           <div className="bf-section-header">
             <div>
-              <div className="site-eyebrow">
-                How We Work
-              </div>
+              <div className="site-eyebrow">How We Work</div>
             </div>
 
             <div>
@@ -140,28 +233,67 @@ export default function AboutPage() {
             </div>
           </div>
 
-          <div className="bf-approach-grid">
-            {approach.map(([number, title, text]) => (
-              <div className="bf-approach-step" key={number}>
-                <div className="bf-approach-number">
-                  {number} / {title.toUpperCase()}
+          <div className="bf-about-approach">
+            {approach.map((step, index) => (
+              <article className="bf-about-approach-step" key={step.number}>
+                <div className="bf-about-approach-number">
+                  {step.number}
                 </div>
 
-                <h3 className="bf-approach-title">
-                  {title}
-                </h3>
+                <div className="bf-about-approach-body">
+                  <div className="bf-about-approach-label">
+                    0{index + 1} / {step.title.toUpperCase()}
+                  </div>
 
-                <p className="bf-approach-text">
-                  {text}
-                </p>
-              </div>
+                  <h3>{step.title}</h3>
+
+                  <p>{step.text}</p>
+                </div>
+
+                {index < approach.length - 1 && (
+                  <div className="bf-about-approach-arrow">→</div>
+                )}
+              </article>
             ))}
           </div>
 
-          <div style={{ marginTop: "50px" }}>
+          <div className="bf-about-approach-cta">
+            <Link href="/services" className="bf-btn bf-btn-outline">
+              Explore Our Expertise →
+            </Link>
+
             <Link href="/contact" className="bf-btn bf-btn-dark">
               Start a Conversation →
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bf-about-cta">
+        <div className="bf-container">
+          <div className="bf-about-cta-grid">
+            <div>
+              <div className="site-eyebrow bf-white-eyebrow">
+                Brianno & Family
+              </div>
+
+              <h2>
+                Let&apos;s build a clearer path
+                <span> forward.</span>
+              </h2>
+            </div>
+
+            <div className="bf-about-cta-action">
+              <p>
+                Tell us what you are working on and let&apos;s explore the
+                opportunity together.
+              </p>
+
+              <Link href="/contact" className="bf-btn bf-btn-dark">
+                Contact Our Team →
+              </Link>
+            </div>
           </div>
         </div>
       </section>

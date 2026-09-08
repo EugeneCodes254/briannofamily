@@ -20,7 +20,7 @@ export default function Header() {
 
   return (
     <header className="bf-header">
-      <div className="bf-container bf-header-inner">
+      <div className="bf-container bf-header-inner bf-header-shifted">
         <Link href="/" className="bf-logo" onClick={() => setOpen(false)}>
           <Image
             src="/b.png"

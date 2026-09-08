@@ -15,43 +15,69 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <main>
-      <section className="bg-[#111111] px-6 pb-20 pt-[170px] text-white lg:px-10 lg:pb-28">
-        <div className="bf-container">
-          <div className="site-eyebrow text-white">
-            Legal
+    <main className="bf-legal-page">
+      <section className="bf-legal-hero">
+        <div className="bf-legal-hero-mark">
+          <span />
+          <span />
+          <span />
+        </div>
+
+        <div className="bf-container bf-legal-hero-content">
+          <div className="site-eyebrow bf-legal-eyebrow">
+            Legal · Brianno & Family
           </div>
 
-          <h1 className="mt-7 text-5xl font-bold tracking-[-.055em] sm:text-6xl lg:text-8xl">
+          <h1>
             Terms &
-            <span className="text-[#d71920]"> Conditions.</span>
+            <span> Conditions.</span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-sm leading-7 text-white/50">
+          <p>
             The terms governing access to and use of the Brianno & Family
             website.
           </p>
 
-          <p className="mt-6 text-[9px] uppercase tracking-[.2em] text-white/30">
-            Last updated: August 2026
-          </p>
+          <div className="bf-legal-date">
+            Last updated · August 2026
+          </div>
         </div>
       </section>
 
-      <section className="bf-section bg-white">
-        <div className="mx-auto max-w-4xl px-6 lg:px-0">
-          <div className="space-y-12">
-            {sections.map(([title, text]) => (
-              <section key={title} className="border-t border-black/10 pt-8">
-                <h2 className="text-2xl font-bold tracking-[-.03em]">
-                  {title}
-                </h2>
+      <section className="bf-legal-body">
+        <div className="bf-container">
+          <div className="bf-legal-layout">
+            <aside className="bf-legal-index">
+              <span>Contents</span>
 
-                <p className="mt-5 text-[15px] leading-8 text-[#6b6b6b]">
-                  {text}
-                </p>
-              </section>
-            ))}
+              {sections.map(([title]) => (
+                <a
+                  key={title}
+                  href={`#${title.split(".")[0].replace(/\s+/g, "-")}`}
+                >
+                  {title}
+                </a>
+              ))}
+            </aside>
+
+            <div className="bf-legal-content">
+              {sections.map(([title, text]) => (
+                <section
+                  key={title}
+                  id={title.split(".")[0].replace(/\s+/g, "-")}
+                  className="bf-legal-section"
+                >
+                  <div className="bf-legal-section-number">
+                    {title.split(".")[0].padStart(2, "0")}
+                  </div>
+
+                  <div>
+                    <h2>{title.substring(title.indexOf(".") + 2)}</h2>
+                    <p>{text}</p>
+                  </div>
+                </section>
+              ))}
+            </div>
           </div>
         </div>
       </section>

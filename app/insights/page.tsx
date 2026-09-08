@@ -1,76 +1,157 @@
+import Image from "next/image";
 import Link from "next/link";
-import PageHero from "../components/PageHero";
 import Footer from "../components/Footer";
 
 const insights = [
   {
     number: "01",
-    tag: "Business",
+    category: "Business & Growth",
     title: "Building stronger businesses through better strategic decisions.",
-    text: "Growth requires more than ambition. It requires understanding where opportunity exists and how to position the organisation to capture it.",
+    text: "Growth requires more than ambition. It requires understanding where opportunity exists, how the market is changing and how an organisation should position itself to respond.",
   },
   {
     number: "02",
-    tag: "Markets",
+    category: "Markets & Trade",
     title: "Understanding opportunity before entering a new market.",
     text: "Market expansion should begin with informed assessment of opportunity, commercial realities, relationships and risk.",
   },
   {
     number: "03",
-    tag: "Advisory",
+    category: "Strategy & Advisory",
     title: "Turning complex commercial questions into clear direction.",
-    text: "The value of advisory lies in helping decision-makers understand what matters and what should happen next.",
+    text: "The value of advisory lies in helping decision-makers understand what matters, what is changing and what should happen next.",
   },
 ];
 
 export default function InsightsPage() {
   return (
-    <main>
-      <PageHero
-        eyebrow="Insights"
-        title="Perspectives for"
-        highlight="better decisions."
-        description="Ideas and perspectives around business development, markets, strategy and commercial decision-making."
-      />
+    <main className="bf-insights-page">
+      <section className="bf-insights-hero">
+        <div className="bf-insights-hero-image">
+          <Image
+            src="/images/strategy-meeting.jpg"
+            alt="African business professionals discussing strategy"
+            fill
+            priority
+            sizes="100vw"
+          />
+        </div>
 
-      <section className="bf-section bg-white">
+        <div className="bf-insights-hero-overlay" />
+
+        <div className="bf-container bf-insights-hero-content">
+          <div className="site-eyebrow bf-insights-eyebrow">
+            Insights · Brianno & Family
+          </div>
+
+          <h1>
+            Perspectives that help
+            <span> businesses move forward.</span>
+          </h1>
+
+          <p>
+            Ideas and perspectives around business development, markets,
+            strategy and commercial decision-making.
+          </p>
+        </div>
+      </section>
+
+      <section className="bf-section bf-insights-intro">
         <div className="bf-container">
           <div className="bf-section-header">
             <div>
               <div className="site-eyebrow">
-                Perspectives
+                Our Perspective
               </div>
             </div>
 
             <div>
               <h2 className="section-heading">
-                Thinking beyond the immediate question.
+                Thinking beyond the
+                <span> immediate question.</span>
               </h2>
             </div>
           </div>
 
-          <p className="body-large" style={{ maxWidth: "780px" }}>
-            Our insights explore themes that influence businesses,
-            organisations and decision-makers operating in changing
-            commercial environments.
+          <p className="body-large bf-insights-intro-copy">
+            The strongest decisions are rarely made by looking at one issue
+            in isolation. We consider markets, commercial realities,
+            relationships and long-term objectives to help organisations
+            see the bigger picture.
           </p>
         </div>
       </section>
 
-      <section className="bf-section bg-[#f1efeb]">
+      <section className="bf-insights-feature">
         <div className="bf-container">
+          <div className="bf-insights-feature-grid">
+            <div className="bf-insights-feature-image">
+              <Image
+                src="/images/strategy-meeting.jpg"
+                alt="African business professionals collaborating in a strategy meeting"
+                fill
+                sizes="(max-width: 900px) 100vw, 52vw"
+              />
+            </div>
+
+            <div className="bf-insights-feature-content">
+              <div className="bf-insight-meta">
+                <span>Featured Perspective</span>
+                <span>01</span>
+              </div>
+
+              <h2>
+                Better decisions begin with
+                <span> better perspective.</span>
+              </h2>
+
+              <p>
+                In a changing commercial environment, organisations need
+                more than information. They need perspective — the ability
+                to distinguish what matters, understand the implications
+                and identify a practical way forward.
+              </p>
+
+              <p>
+                Our advisory approach is built around that principle:
+                bringing clarity to complex commercial questions and
+                helping decision-makers move from uncertainty to action.
+              </p>
+
+              <Link href="/contact" className="bf-btn bf-btn-dark">
+                Discuss Your Challenge →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bf-section bf-insights-library">
+        <div className="bf-container">
+          <div className="bf-section-header bf-insights-library-header">
+            <div>
+              <div className="site-eyebrow">
+                Insights
+              </div>
+            </div>
+
+            <div>
+              <h2 className="section-heading">
+                Ideas for organisations
+                <span> building what comes next.</span>
+              </h2>
+            </div>
+          </div>
+
           <div className="bf-insight-grid">
             {insights.map((insight) => (
-              <article
-                className="bf-insight"
-                key={insight.number}
-              >
-                <div className="flex items-center justify-between">
+              <article className="bf-insight" key={insight.number}>
+                <div className="bf-insight-top">
                   <span className="bf-insight-tag">
-                    {insight.tag}
+                    {insight.category}
                   </span>
 
-                  <span className="text-xs font-bold text-[#d71920]">
+                  <span className="bf-insight-number">
                     {insight.number}
                   </span>
                 </div>
@@ -79,7 +160,7 @@ export default function InsightsPage() {
                   {insight.title}
                 </h3>
 
-                <p className="mt-5 text-sm leading-7 text-[#6b6b6b]">
+                <p className="bf-insight-text">
                   {insight.text}
                 </p>
 
@@ -87,7 +168,7 @@ export default function InsightsPage() {
                   href="/contact"
                   className="bf-insight-link"
                 >
-                  Discuss This Topic →
+                  Discuss This Topic <span>→</span>
                 </Link>
               </article>
             ))}
@@ -95,11 +176,53 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      <section className="bf-section bf-contact">
+      <section className="bf-insights-principle">
         <div className="bf-container">
-          <div className="bf-contact-grid">
+          <div className="bf-insights-principle-grid">
             <div>
-              <div className="site-eyebrow" style={{ color: "#fff" }}>
+              <div className="site-eyebrow bf-insights-light-eyebrow">
+                How We Think
+              </div>
+            </div>
+
+            <div>
+              <h2>
+                Advisory should create
+                <span> clarity and momentum.</span>
+              </h2>
+
+              <p>
+                Good advice should make the next decision easier. We focus
+                on practical perspectives that help leaders understand
+                their options, assess opportunity and move with confidence.
+              </p>
+
+              <div className="bf-insights-principles">
+                <div>
+                  <strong>01</strong>
+                  <span>Understand the context.</span>
+                </div>
+
+                <div>
+                  <strong>02</strong>
+                  <span>Identify the opportunity.</span>
+                </div>
+
+                <div>
+                  <strong>03</strong>
+                  <span>Define the way forward.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bf-section bf-insights-cta">
+        <div className="bf-container">
+          <div className="bf-insights-cta-grid">
+            <div>
+              <div className="site-eyebrow">
                 Continue the Conversation
               </div>
 
@@ -108,8 +231,13 @@ export default function InsightsPage() {
               </h2>
             </div>
 
-            <div>
-              <Link href="/contact" className="bf-btn bf-btn-dark">
+            <div className="bf-insights-cta-action">
+              <p>
+                Let's explore the opportunity, challenge or decision
+                in front of you.
+              </p>
+
+              <Link href="/contact" className="bf-btn bf-btn-primary">
                 Speak With Us →
               </Link>
             </div>

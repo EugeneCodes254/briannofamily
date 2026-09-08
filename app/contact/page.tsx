@@ -1,142 +1,168 @@
 import Link from "next/link";
 import Footer from "../components/Footer";
 
+const contactDetails = [
+  {
+    label: "Email",
+    value: "info@brianofamily.com",
+    href: "mailto:info@brianofamily.com",
+  },
+  {
+    label: "Phone",
+    value: "+254 742 840 154",
+    href: "tel:+254742840154",
+  },
+];
+
+const engagementAreas = [
+  "Business development",
+  "Tender advisory",
+  "International trade",
+  "Financial consulting",
+];
+
 export default function ContactPage() {
   return (
-    <main>
-      <section className="relative overflow-hidden bg-[#111111] pt-[88px] text-white">
-        <div className="absolute right-[-250px] top-[-250px] h-[700px] w-[700px] rounded-full border border-white/[0.07]" />
-        <div className="absolute right-[-130px] top-[-130px] h-[450px] w-[450px] rounded-full border border-[#d71920]/25" />
+    <main className="bf-contact-page">
+      <section className="bf-contact-hero">
+        <div className="bf-contact-hero-pattern" />
 
-        <div className="relative mx-auto grid min-h-[620px] max-w-[1280px] items-center gap-16 px-6 py-24 lg:grid-cols-[1fr_.65fr] lg:px-0">
+        <div className="bf-container bf-contact-hero-content">
           <div>
-            <div className="site-eyebrow mb-8 text-white">
+            <div className="site-eyebrow bf-contact-light-eyebrow">
               Start a Conversation
             </div>
 
-            <h1 className="text-[50px] font-bold leading-[.9] tracking-[-.06em] sm:text-6xl lg:text-[88px]">
+            <h1>
               Let&apos;s discuss
-              <br />
-              <span className="text-[#d71920]">
-                what comes next.
-              </span>
+              <span> what comes next.</span>
             </h1>
 
-            <p className="mt-8 max-w-2xl text-lg leading-8 text-white/60">
+            <p>
               Whether you are exploring a new opportunity, entering a market
               or looking for strategic direction, we would be pleased to hear
               from you.
             </p>
           </div>
 
-          <div className="border border-white/15 bg-white/[0.04] p-8 backdrop-blur-sm">
-            <p className="text-[9px] font-bold uppercase tracking-[.25em] text-[#d71920]">
-              Contact Details
-            </p>
+          <div className="bf-contact-hero-side">
+            <span>Based in Nairobi</span>
+            <span>Working across Kenya & Beyond</span>
+          </div>
+        </div>
+      </section>
 
-            <div className="mt-8 space-y-7">
-              <div>
-                <span className="block text-[9px] uppercase tracking-[.2em] text-white/35">
-                  Email
-                </span>
-
-                <a
-                  href="mailto:info@brianofamily.com"
-                  className="mt-2 block text-lg font-semibold hover:text-[#d71920]"
-                >
-                  info@brianofamily.com
-                </a>
+      <section className="bf-contact-details">
+        <div className="bf-container">
+          <div className="bf-contact-details-grid">
+            <div className="bf-contact-intro">
+              <div className="site-eyebrow">
+                Get In Touch
               </div>
 
-              <div>
-                <span className="block text-[9px] uppercase tracking-[.2em] text-white/35">
-                  Phone
-                </span>
+              <h2>
+                A conversation can
+                <span> start here.</span>
+              </h2>
 
+              <p>
+                Tell us what you are working on. It may be a business
+                challenge, an opportunity you are evaluating, a market you
+                are considering or simply a question about how we may be able
+                to help.
+              </p>
+            </div>
+
+            <div className="bf-contact-information">
+              {contactDetails.map((item) => (
                 <a
-                  href="tel:+254742840154"
-                  className="mt-2 block text-lg font-semibold hover:text-[#d71920]"
+                  href={item.href}
+                  className="bf-contact-detail"
+                  key={item.label}
                 >
-                  +254 742 840 154
+                  <span>{item.label}</span>
+                  <strong>{item.value}</strong>
+                  <b>→</b>
                 </a>
-              </div>
+              ))}
 
-              <div>
-                <span className="block text-[9px] uppercase tracking-[.2em] text-white/35">
-                  Office
-                </span>
-
-                <p className="mt-2 text-lg font-semibold">
+              <div className="bf-contact-detail bf-contact-address">
+                <span>Office</span>
+                <strong>
                   316 Ndovu Close,
                   <br />
                   Karen, Nairobi,
                   <br />
                   Kenya
-                </p>
+                </strong>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="bf-section bg-white">
+      <section className="bf-contact-engagement">
         <div className="bf-container">
-          <div className="max-w-3xl">
+          <div className="bf-contact-engagement-header">
             <div className="site-eyebrow">
-              Begin Here
+              How We Can Help
             </div>
 
-            <h2 className="section-heading mt-7">
-              Tell us what you are working on.
+            <h2>
+              Bring us the question.
+              <span> We&apos;ll explore the opportunity.</span>
             </h2>
+          </div>
 
-            <p className="body-large mt-8">
-              A conversation can begin with a business challenge, an
-              opportunity you are evaluating, a market you are considering or
-              simply a question about how we may be able to help.
-            </p>
+          <div className="bf-contact-engagement-grid">
+            {engagementAreas.map((area, index) => (
+              <div className="bf-contact-engagement-item" key={area}>
+                <span>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
-            <a
-              href="mailto:info@brianofamily.com"
-              className="bf-btn bf-btn-primary mt-9"
-            >
-              Email Brianno & Family →
-            </a>
+                <strong>{area}</strong>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="bf-section bg-[#f1efeb]">
+      <section className="bf-contact-next">
         <div className="bf-container">
-          <div className="grid gap-10 md:grid-cols-3">
+          <div className="bf-contact-next-grid">
             <div>
-              <span className="text-[9px] font-bold uppercase tracking-[.2em] text-[#d71920]">
-                Location
-              </span>
+              <div className="site-eyebrow bf-contact-light-eyebrow">
+                The Next Step
+              </div>
 
-              <h3 className="mt-4 text-xl font-bold">
-                Nairobi, Kenya
-              </h3>
+              <h2>
+                Good conversations
+                <span> create direction.</span>
+              </h2>
             </div>
 
-            <div>
-              <span className="text-[9px] font-bold uppercase tracking-[.2em] text-[#d71920]">
-                Geography
-              </span>
+            <div className="bf-contact-next-action">
+              <p>
+                Start with an email or give us a call. We&apos;ll take it from
+                there.
+              </p>
 
-              <h3 className="mt-4 text-xl font-bold">
-                Kenya & Beyond
-              </h3>
-            </div>
+              <div className="bf-contact-actions">
+                <a
+                  href="mailto:info@brianofamily.com"
+                  className="bf-btn bf-btn-primary"
+                >
+                  Email Brianno & Family →
+                </a>
 
-            <div>
-              <span className="text-[9px] font-bold uppercase tracking-[.2em] text-[#d71920]">
-                Established
-              </span>
-
-              <h3 className="mt-4 text-xl font-bold">
-                2019
-              </h3>
+                <a
+                  href="tel:+254742840154"
+                  className="bf-btn bf-btn-outline-light"
+                >
+                  Call +254 742 840 154
+                </a>
+              </div>
             </div>
           </div>
         </div>

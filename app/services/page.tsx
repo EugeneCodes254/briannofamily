@@ -1,11 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
-import PageHero from "../components/PageHero";
 import Footer from "../components/Footer";
 
 const services = [
   {
     number: "01",
     title: "Business Development",
+    short: "Growth",
+    image: "/images/service-business.jpg",
     description:
       "Helping organisations identify opportunities, strengthen market position and develop practical strategies for sustainable commercial growth.",
     capabilities: [
@@ -20,6 +22,8 @@ const services = [
   {
     number: "02",
     title: "Tender Advisory",
+    short: "Procurement",
+    image: "/images/service-tender.jpg",
     description:
       "Providing structured advisory support to businesses pursuing tenders, procurement opportunities and competitive bids.",
     capabilities: [
@@ -34,6 +38,8 @@ const services = [
   {
     number: "03",
     title: "International Trade",
+    short: "Markets",
+    image: "/images/service-trade.jpg",
     description:
       "Supporting organisations exploring new markets, cross-border opportunities, international partnerships and commercial expansion.",
     capabilities: [
@@ -48,6 +54,8 @@ const services = [
   {
     number: "04",
     title: "Financial Consulting",
+    short: "Finance",
+    image: "/images/service-financial.jpg",
     description:
       "Providing financial and commercial insight to support planning, evaluation and informed business decision-making.",
     capabilities: [
@@ -64,44 +72,74 @@ const services = [
 export default function ServicesPage() {
   return (
     <main>
-      <PageHero
-        eyebrow="Our Services"
-        title="Expertise for"
-        highlight="ambitious organisations."
-        description="From business growth and tender opportunities to international markets and financial decisions, Brianno & Family provides focused advisory support built around your commercial objectives."
-      />
+      {/* PAGE HERO */}
+      <section className="bf-inner-hero">
+        <div className="bf-inner-hero-image">
+          <Image
+            src="/images/hero-nairobi-architecture.jpg"
+            alt="Modern executive office overlooking a city skyline"
+            fill
+            priority
+            sizes="100vw"
+          />
+        </div>
 
+        <div className="bf-inner-hero-overlay" />
+
+        <div className="bf-container bf-inner-hero-content">
+          <div className="site-eyebrow bf-inner-eyebrow">
+            Our Services · Nairobi
+          </div>
+
+          <h1 className="display-heading bf-inner-title">
+            Expertise for
+            <span> ambitious organisations.</span>
+          </h1>
+
+          <p className="bf-inner-description">
+            From business growth and tender opportunities to international
+            markets and financial decisions, Brianno & Family provides focused
+            advisory support built around your commercial objectives.
+          </p>
+        </div>
+
+        <div className="bf-inner-hero-index">
+          <span>01</span>
+          <span>04</span>
+          <span>CORE CAPABILITIES</span>
+        </div>
+      </section>
+
+      {/* INTRO */}
       <section className="bf-section bg-white">
         <div className="bf-container">
-          <div className="bf-section-header">
+          <div className="bf-services-intro-grid">
             <div>
-              <div className="site-eyebrow">
-                What We Do
-              </div>
+              <div className="site-eyebrow">What We Do</div>
+              <div className="bf-services-intro-line" />
             </div>
 
             <div>
               <h2 className="section-heading">
                 Turning commercial questions into clearer strategic decisions.
               </h2>
+
+              <p className="body-large bf-services-intro-copy">
+                Every business opportunity comes with questions. Our role is to
+                help clients examine those questions systematically and develop
+                practical approaches for moving forward.
+              </p>
             </div>
           </div>
-
-          <p className="body-large" style={{ maxWidth: "780px" }}>
-            Every business opportunity comes with questions. Our role is to
-            help clients examine those questions systematically and develop
-            practical approaches for moving forward.
-          </p>
         </div>
       </section>
 
-      <section className="bf-section bg-[#f1efeb]">
+      {/* SERVICES */}
+      <section className="bf-section bf-services-page">
         <div className="bf-container">
           <div className="bf-section-header">
             <div>
-              <div className="site-eyebrow">
-                Core Capabilities
-              </div>
+              <div className="site-eyebrow">Core Capabilities</div>
             </div>
 
             <div>
@@ -111,42 +149,59 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="space-y-5">
+          <div className="bf-service-detail-list">
             {services.map((service) => (
-              <article
-                key={service.number}
-                className="overflow-hidden border border-black/10 bg-white"
-              >
-                <div className="grid lg:grid-cols-[220px_1fr]">
-                  <div className="relative bg-[#111111] p-8 text-white lg:p-10">
-                    <span className="text-5xl font-bold tracking-[-.05em] text-[#d71920]">
-                      {service.number}
-                    </span>
-
-                    <p className="absolute bottom-8 left-8 text-[9px] font-bold uppercase tracking-[.2em] text-white/40 lg:left-10">
-                      Brianno & Family
-                    </p>
+              <article className="bf-service-detail" key={service.number}>
+                <div className="bf-service-detail-top">
+                  <div className="bf-service-detail-number">
+                    {service.number}
                   </div>
 
-                  <div className="p-8 lg:p-10">
-                    <h3 className="text-3xl font-bold tracking-[-.04em]">
-                      {service.title}
-                    </h3>
+                  <div className="bf-service-detail-category">
+                    {service.short}
+                  </div>
+                </div>
 
-                    <p className="mt-5 max-w-3xl text-[15px] leading-7 text-[#6b6b6b]">
+                <div className="bf-service-detail-grid">
+                  <div className="bf-service-detail-visual">
+                    <img
+                      src={service.image}
+                      alt={`${service.title} advisory`}
+                      className="bf-service-detail-native-image"
+                    />
+
+                    <div className="bf-service-detail-image-overlay" />
+
+                    <span className="bf-service-detail-image-label">
+                      Brianno & Family
+                    </span>
+                  </div>
+
+                  <div className="bf-service-detail-content">
+                    <h3>{service.title}</h3>
+
+                    <p className="bf-service-detail-description">
                       {service.description}
                     </p>
 
-                    <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                      {service.capabilities.map((capability) => (
+                    <div className="bf-service-capabilities">
+                      {service.capabilities.map((capability, index) => (
                         <div
+                          className="bf-service-capability"
                           key={capability}
-                          className="border-t border-black/10 pt-3 text-xs font-semibold"
                         >
-                          {capability}
+                          <span>0{index + 1}</span>
+                          <strong>{capability}</strong>
                         </div>
                       ))}
                     </div>
+
+                    <Link
+                      href="/contact"
+                      className="bf-service-detail-link"
+                    >
+                      Discuss this capability <span>↗</span>
+                    </Link>
                   </div>
                 </div>
               </article>
@@ -155,6 +210,33 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* PHILOSOPHY */}
+      <section className="bf-section bf-service-philosophy">
+        <div className="bf-container">
+          <div className="bf-service-philosophy-grid">
+            <div>
+              <div className="site-eyebrow" style={{ color: "#fff" }}>
+                Our Philosophy
+              </div>
+            </div>
+
+            <div>
+              <h2 className="section-heading bf-service-philosophy-title">
+                Advisory should create
+                <span> direction, not complexity.</span>
+              </h2>
+
+              <p className="bf-service-philosophy-copy">
+                We combine strategic thinking with practical commercial
+                understanding to help organisations make informed decisions
+                and move from opportunity to action.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT */}
       <section className="bf-section bf-contact">
         <div className="bf-container">
           <div className="bf-contact-grid">

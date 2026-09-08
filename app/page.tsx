@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -7,24 +10,28 @@ const services = [
     title: "Business Development",
     description:
       "We help organisations identify opportunities, strengthen commercial positioning and turn growth ambitions into practical strategies.",
+    image: "/images/service-business.jpg",
   },
   {
     number: "02",
     title: "Tender Advisory",
     description:
       "Structured support across procurement, tender preparation, opportunity assessment and commercial positioning.",
+    image: "/images/service-tender.jpg",
   },
   {
     number: "03",
     title: "International Trade",
     description:
       "Advisory support for organisations entering new markets, building partnerships and navigating cross-border opportunities.",
+    image: "/images/service-trade.jpg",
   },
   {
     number: "04",
     title: "Financial Consulting",
     description:
       "Commercial and financial perspective designed to improve decision-making, capital planning and sustainable growth.",
+    image: "/images/service-financial.jpg",
   },
 ];
 
@@ -75,15 +82,44 @@ const insights = [
   },
 ];
 
+const heroImages = [
+  {
+    src: "/images/hero-nairobi-skyline.jpg",
+    alt: "Nairobi skyline with modern commercial buildings under a dramatic sky",
+  },
+  {
+    src: "/images/hero-executive-boardroom.jpg",
+    alt: "Senior executives discussing strategy in a premium boardroom",
+  },
+  {
+    src: "/images/hero-premium-office.jpg",
+    alt: "Premium modern executive office with city views",
+  },
+];
+
 export default function Home() {
+  const [currentHero, setCurrentHero] = useState(0);
+
+  useEffect(() => {
+    const initialIndex = Math.floor(Math.random() * heroImages.length);
+    setCurrentHero(initialIndex);
+
+    const interval = window.setInterval(() => {
+      setCurrentHero((current) => (current + 1) % heroImages.length);
+    }, 9000);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
     <main>
       {/* HERO */}
       <section className="bf-hero">
         <div className="bf-hero-image">
           <Image
-            src="/landing page2.jpg"
-            alt="Modern business architecture"
+            key={heroImages[currentHero].src}
+            src={heroImages[currentHero].src}
+            alt={heroImages[currentHero].alt}
             fill
             priority
             sizes="100vw"
@@ -188,8 +224,21 @@ export default function Home() {
       <section className="bf-section">
         <div className="bf-container">
           <div className="bf-intro-grid">
-            <div>
+            <div className="bf-intro-visual">
               <div className="site-eyebrow">Our Perspective</div>
+
+              <div className="bf-photo-frame bf-photo-frame-tall">
+                <Image
+                  src="/images/strategy-meeting.jpg"
+                  alt="African business professionals in a strategy meeting"
+                  fill
+                  sizes="(max-width: 900px) 100vw, 42vw"
+                />
+                <div className="bf-photo-caption">
+                  <span>Strategy in practice</span>
+                  <span>People · Perspective · Progress</span>
+                </div>
+              </div>
             </div>
 
             <div>
@@ -251,6 +300,15 @@ export default function Home() {
                 <p className="bf-service-description">
                   {service.description}
                 </p>
+
+                <div className="bf-service-image" aria-hidden="true">
+                  <Image
+                    src={service.image}
+                    alt=""
+                    fill
+                    sizes="260px"
+                  />
+                </div>
 
                 <div className="bf-service-arrow">↗</div>
               </Link>
@@ -347,7 +405,63 @@ export default function Home() {
         </div>
       </section>
 
-      {/* APPROACH */}
+      {/* INDUSTRY VISUALS */}
+      <section className="bf-section bf-industry-visual-section">
+        <div className="bf-container">
+          <div className="bf-editorial-intro">
+            <div className="site-eyebrow">Commercial Landscape</div>
+
+            <p>
+              From Nairobi's corporate centre to infrastructure and
+              international markets, our perspective connects local
+              understanding with wider commercial opportunity.
+            </p>
+          </div>
+
+          <div className="bf-industry-visuals">
+            <article className="bf-industry-photo bf-industry-photo-large">
+              <Image
+                src="/images/nairobi-skyline.jpg"
+                alt="Nairobi skyline"
+                fill
+                sizes="(max-width: 900px) 100vw, 50vw"
+              />
+              <div className="bf-industry-photo-overlay">
+                <span>01</span>
+                <strong>Nairobi & Commercial Growth</strong>
+              </div>
+            </article>
+
+            <article className="bf-industry-photo">
+              <Image
+                src="/images/infrastructure.jpg"
+                alt="High-rise construction in Nairobi"
+                fill
+                sizes="(max-width: 900px) 100vw, 25vw"
+              />
+              <div className="bf-industry-photo-overlay">
+                <span>02</span>
+                <strong>Infrastructure</strong>
+              </div>
+            </article>
+
+            <article className="bf-industry-photo">
+              <Image
+                src="/images/international-trade.jpg"
+                alt="International shipping containers"
+                fill
+                sizes="(max-width: 900px) 100vw, 25vw"
+              />
+              <div className="bf-industry-photo-overlay">
+                <span>03</span>
+                <strong>International Trade</strong>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+            {/* APPROACH */}
       <section className="bf-section bf-approach">
         <div className="bf-container">
           <div className="bf-section-header">
@@ -400,7 +514,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* INSIGHTS */}
+      {/* APPROACH VISUAL */}
+      <section className="bf-approach-visual">
+        <div className="bf-container">
+          <div className="bf-approach-photo">
+            <Image
+              src="/images/approach-strategy.jpg"
+              alt="African business professionals collaborating in a strategy meeting"
+              fill
+              sizes="100vw"
+            />
+
+            <div className="bf-approach-photo-overlay">
+              <div className="site-eyebrow">Collaboration</div>
+              <h2>Ideas become valuable when they move into action.</h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+            {/* INSIGHTS */}
       <section className="bf-section bf-insights">
         <div className="bf-container">
           <div className="bf-section-header">

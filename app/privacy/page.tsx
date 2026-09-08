@@ -15,65 +15,94 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <main>
-      <section className="bg-[#111111] px-6 pb-20 pt-[170px] text-white lg:px-10 lg:pb-28">
-        <div className="bf-container">
-          <div className="site-eyebrow text-white">
-            Legal
+    <main className="bf-legal-page">
+      <section className="bf-legal-hero">
+        <div className="bf-legal-hero-mark">
+          <span />
+          <span />
+          <span />
+        </div>
+
+        <div className="bf-container bf-legal-hero-content">
+          <div className="site-eyebrow bf-legal-eyebrow">
+            Legal · Brianno & Family
           </div>
 
-          <h1 className="mt-7 text-5xl font-bold tracking-[-.055em] sm:text-6xl lg:text-8xl">
+          <h1>
             Privacy
-            <span className="text-[#d71920]"> Policy.</span>
+            <span> Policy.</span>
           </h1>
 
-          <p className="mt-7 max-w-2xl text-sm leading-7 text-white/50">
+          <p>
             How Brianno & Family collects, uses, protects and manages personal
             information provided through this website and our services.
           </p>
 
-          <p className="mt-6 text-[9px] uppercase tracking-[.2em] text-white/30">
-            Last updated: August 2026
-          </p>
+          <div className="bf-legal-date">
+            Last updated · August 2026
+          </div>
         </div>
       </section>
 
-      <section className="bf-section bg-white">
-        <div className="mx-auto max-w-4xl px-6 lg:px-0">
-          <div className="space-y-12">
-            {sections.map(([title, text]) => (
-              <section key={title} className="border-t border-black/10 pt-8">
-                <h2 className="text-2xl font-bold tracking-[-.03em]">
-                  {title}
-                </h2>
+      <section className="bf-legal-body">
+        <div className="bf-container">
+          <div className="bf-legal-layout">
+            <aside className="bf-legal-index">
+              <span>Contents</span>
 
-                <p className="mt-5 text-[15px] leading-8 text-[#6b6b6b]">
-                  {text}
-                </p>
-              </section>
-            ))}
-
-            <section className="border-t border-black/10 pt-8">
-              <h2 className="text-2xl font-bold">
-                Contact Us
-              </h2>
-
-              <p className="mt-5 text-[15px] leading-8 text-[#6b6b6b]">
-                For questions about this Privacy Policy or privacy-related
-                requests, contact Brianno & Family.
-              </p>
-
-              <div className="mt-6 space-y-2 text-sm font-semibold">
-                <p>316 Ndovu Close, Karen, Nairobi, Kenya</p>
-                <p>+254 742 840 154</p>
+              {sections.map(([title]) => (
                 <a
-                  href="mailto:info@brianofamily.com"
-                  className="text-[#d71920]"
+                  key={title}
+                  href={`#${title.split(".")[0].replace(/\s+/g, "-")}`}
                 >
-                  info@brianofamily.com
+                  {title}
                 </a>
-              </div>
-            </section>
+              ))}
+
+              <a href="#contact">Contact Us</a>
+            </aside>
+
+            <div className="bf-legal-content">
+              {sections.map(([title, text]) => (
+                <section
+                  key={title}
+                  id={title.split(".")[0].replace(/\s+/g, "-")}
+                  className="bf-legal-section"
+                >
+                  <div className="bf-legal-section-number">
+                    {title.split(".")[0].padStart(2, "0")}
+                  </div>
+
+                  <div>
+                    <h2>{title.substring(title.indexOf(".") + 2)}</h2>
+                    <p>{text}</p>
+                  </div>
+                </section>
+              ))}
+
+              <section id="contact" className="bf-legal-section bf-legal-contact">
+                <div className="bf-legal-section-number">
+                  11
+                </div>
+
+                <div>
+                  <h2>Contact Us</h2>
+
+                  <p>
+                    For questions about this Privacy Policy or privacy-related
+                    requests, contact Brianno & Family.
+                  </p>
+
+                  <div className="bf-legal-contact-details">
+                    <span>316 Ndovu Close, Karen, Nairobi, Kenya</span>
+                    <span>+254 742 840 154</span>
+                    <a href="mailto:info@brianofamily.com">
+                      info@brianofamily.com
+                    </a>
+                  </div>
+                </div>
+              </section>
+            </div>
           </div>
         </div>
       </section>
