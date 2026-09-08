@@ -4934,3 +4934,184 @@ button {
   top: 10px;
   right: 2px;
 }
+
+
+/* =========================================================
+   FLOATING HERO HEADER
+   Header overlays the hero instead of taking its own band.
+   ========================================================= */
+
+.bf-header {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 100 !important;
+  height: 96px !important;
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255,255,255,.14) !important;
+  color: #fff !important;
+}
+
+.bf-header-inner {
+  height: 96px !important;
+  display: flex !important;
+  align-items: center !important;
+  position: relative !important;
+  z-index: 101 !important;
+}
+
+.bf-logo {
+  position: relative !important;
+  z-index: 102 !important;
+}
+
+.bf-logo-mark {
+  display: block !important;
+}
+
+.bf-nav {
+  margin-left: auto !important;
+}
+
+.bf-nav-link {
+  color: rgba(255,255,255,.92) !important;
+}
+
+.bf-nav-link:hover,
+.bf-nav-link.active {
+  color: #fff !important;
+}
+
+.bf-header-cta {
+  margin-left: 28px !important;
+  background: #fff !important;
+  color: #111 !important;
+  border-color: #fff !important;
+}
+
+.bf-header-cta:hover {
+  background: #b51f2b !important;
+  border-color: #b51f2b !important;
+  color: #fff !important;
+}
+
+.bf-mobile-toggle {
+  color: #fff !important;
+  border-color: rgba(255,255,255,.35) !important;
+  background: rgba(0,0,0,.18) !important;
+}
+
+.bf-hero {
+  position: relative !important;
+  min-height: 760px !important;
+  margin-top: 0 !important;
+}
+
+.bf-hero-image,
+.bf-hero-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+}
+
+.bf-hero-content {
+  position: relative !important;
+  z-index: 5 !important;
+  padding-top: 120px !important;
+}
+
+.bf-mobile-menu {
+  position: absolute !important;
+  top: 96px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 110 !important;
+}
+
+/* Mobile floating header */
+@media (max-width: 900px) {
+  .bf-header {
+    height: 74px !important;
+  }
+
+  .bf-header-inner {
+    height: 74px !important;
+  }
+
+  .bf-hero {
+    min-height: 720px !important;
+  }
+
+  .bf-hero-content {
+    padding-top: 100px !important;
+  }
+
+  .bf-mobile-menu {
+    top: 74px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .bf-header {
+    height: 70px !important;
+  }
+
+  .bf-header-inner {
+    height: 70px !important;
+  }
+
+  .bf-hero {
+    min-height: 700px !important;
+  }
+
+  .bf-hero-content {
+    padding-top: 92px !important;
+  }
+
+  .bf-mobile-menu {
+    top: 70px !important;
+  }
+}
+
+/* Keep internal pages clean while the homepage header floats over the hero.
+   The shared header remains transparent, with a readable dark surface
+   supplied by each page's hero where appropriate. */
+
+
+/* =========================================================
+   FINAL FLOATING HEADER POLISH
+   Adds a subtle dark gradient for consistent readability
+   across all rotating hero photographs.
+   ========================================================= */
+
+.bf-header {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 5, 5, 0.62) 0%,
+      rgba(5, 5, 5, 0.28) 55%,
+      rgba(5, 5, 5, 0) 100%
+    ) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.bf-nav-link {
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.35);
+}
+
+.bf-logo-mark {
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.35));
+}
+
+@media (max-width: 900px) {
+  .bf-header {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(5, 5, 5, 0.68) 0%,
+        rgba(5, 5, 5, 0.30) 65%,
+        rgba(5, 5, 5, 0) 100%
+      ) !important;
+  }
+}
